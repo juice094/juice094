@@ -1,56 +1,104 @@
-# 酒宿 (juice094)
+<div align="center">
 
-> 自己写协议自己跑。Rust + AI + 分布式。不接别人 spec。
+# Hey, I'm 酒宿 (Zhou Jingxiao) 👋
 
-大数据专业大三在读，Rust 开发者。专注于分布式同步协议、AI agent 运行时、以及如何用声明式文档驱动运维。目前在建设两个核心项目，正在寻找 2027 届实习机会。霍兰德 CIE / 九型 7w8。
+> *"I write my own protocols. Rust + AI + Distributed Systems. I don't take others' specs."*
 
----
-
-## 🧭 Projects
-
-### [syncthing-rust](https://github.com/juice094/syncthing-rust)
-Rust 实现的 Syncthing 兼容客户端——完整的 BEP 协议栈、文件同步引擎、TUI 界面。385+ 单元测试，内存稳定在 170MB，支持多文件夹、多设备、中继发现。目标是提供一个比 Go 原版更轻、更快、适合嵌入的替代方案。
-
-![Rust](https://img.shields.io/badge/Rust-red?style=flat-square&logo=rust&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-385%2B-green?style=flat-square)
-![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)
-
-### [Clarity](https://github.com/juice094/clarity)
-本地优先的 AI agent 运行时。Rust workspace，5 crates，114+ tests。支持子代理并行、Plan Mode、多模型调度、MCP 协议三传输。核心理念：集群即单机——先在本地验证分布式协作原语，保留无损扩展到多机的期权。
-
-![Rust](https://img.shields.io/badge/Rust-red?style=flat-square&logo=rust&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-114%2B-green?style=flat-square)
-![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)
+</div>
 
 ---
 
-## 🛠 Tech Stack
+### 🧭 About Me
 
-![Rust](https://img.shields.io/badge/Rust-red?style=flat-square&logo=rust&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
-![Shell](https://img.shields.io/badge/Shell-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
+A junior CS student at Gansu Agricultural University, building production-grade Rust systems. I focus on distributed synchronization protocols, AI agent runtimes, and declarative infrastructure. Certified AI Application Engineer (Intermediate). Seeking 2027 internship opportunities in backend / systems / AI infra.
 
----
+<div align="center">
 
-## 🎓 Current
+[![GitHub followers](https://img.shields.io/github/followers/juice094?style=social)](https://github.com/juice094)
+[![GitHub stars](https://img.shields.io/github/stars/juice094?affiliations=OWNER&style=social)](https://github.com/juice094?tab=repositories)
 
-- 大数据专业大三，甘肃农业大学
-- AI 应用工程师（中级）持证
-- 寻求 2027 届后端 / 系统开发 / AI 基础设施实习
-- 课外研究：BEP 协议、声明式运维、AI agent 协作架构
+</div>
 
 ---
 
-## 📬 Connect
+### ⚡ Featured Projects
 
-- GitHub: [@juice094](https://github.com/juice094)
+<div align="center">
+
+<table>
+<tr>
+<td width="50%">
+<h4 align="center">🔄 syncthing-rust</h4>
+<p align="center">A Rust-native Syncthing-compatible client — complete BEP protocol stack, file sync engine, TUI. 385+ tests, 170MB memory-stable. A lighter, faster alternative to the Go implementation.</p>
+<p align="center">
+<img src="https://img.shields.io/badge/Rust-red?style=flat-square&logo=rust&logoColor=white">
+<img src="https://img.shields.io/badge/tests-385+-green?style=flat-square">
+<img src="https://img.shields.io/badge/memory-170MB-blue?style=flat-square">
+<br>
+<a href="https://github.com/juice094/syncthing-rust">🔗 View Repo</a>
+</p>
+</td>
+<td width="50%">
+<h4 align="center">🧠 Clarity</h4>
+<p align="center">A local-first AI agent runtime. Rust workspace — 5 crates, 114+ tests. Sub-agent parallelism, Plan Mode, multi-model scheduling, MCP triple-transport. Cluster-as-local-machine architecture.</p>
+<p align="center">
+<img src="https://img.shields.io/badge/Rust-red?style=flat-square&logo=rust&logoColor=white">
+<img src="https://img.shields.io/badge/tests-114+-green?style=flat-square">
+<img src="https://img.shields.io/badge/crates-5-orange?style=flat-square">
+<br>
+<a href="https://github.com/juice094/clarity">🔗 View Repo</a>
+</p>
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
-<p align="center"><sub>CIE • 7w8 🦉</sub></p>
+### 🛠 Tech Stack
+
+<div align="center">
+
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+</div>
+
+---
+
+### 📊 GitHub Stats
+
+<div align="center">
+
+<img height="160" src="https://github-readme-stats.vercel.app/api?username=juice094&show_icons=true&theme=radical&hide_border=true&count_private=true">
+<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=juice094&layout=compact&theme=radical&hide_border=true">
+
+</div>
+
+---
+
+### 🎓 Currently
+
+- 📚 Junior year, Big Data, Gansu Agricultural University
+- 📜 AI Application Engineer (Intermediate) certified
+- 🔍 Actively seeking 2027 backend / systems / AI infrastructure internships
+- 🌱 Exploring: BEP protocol optimization, declarative MD-driven devops, AI agent collaboration
+
+---
+
+<div align="center">
+
+### 📬 Let's Connect
+
+[![GitHub](https://img.shields.io/badge/GitHub-@juice094-181717?style=for-the-badge&logo=github)](https://github.com/juice094)
+
+<sub>Holland CIE • Enneagram 7w8 • PDP Owl 🦉</sub>
+
+</div>
