@@ -99,6 +99,6 @@ A junior CS student at Gansu Agricultural University, building production-grade 
 
 [![GitHub](https://img.shields.io/badge/GitHub-@juice094-181717?style=for-the-badge&logo=github)](https://github.com/juice094)
 
-<sub>Holland CIE • Enneagram 7w8 • PDP Owl 🦉 • MBTI ENTJ</sub>
+<sub>Holland CIE • Enneagram 7w8 • PDP Owl 🦉 • MBTI ENTJ • DISC DC</sub>
 
 </div>
