@@ -226,7 +226,7 @@ Embedding providers · Syncthing client
 &nbsp;&nbsp;·&nbsp;&nbsp;
 📜 AI Application Engineer (Intermediate)
 &nbsp;&nbsp;·&nbsp;&nbsp;
-📄 Research: generation-budget window in RAG
+📄 Research: output structure in retrieval-augmented generation
 &nbsp;&nbsp;·&nbsp;&nbsp;
 🔍 Seeking 2027 backend / systems / AI infra internships
 

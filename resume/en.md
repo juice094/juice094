@@ -25,13 +25,14 @@ GPA 83/100 · Core courses 86/100 · Top 10%
 
 ## Research
 
-### Generation-Budget Window in RAG (2026.06 — present)
+### Empirical Study of Output Structure in RAG (2026.06 — present)
 
-Independent research. 7 models × 4 architectures × 3 domains. 10-page paper.
+Independent research. Multi-model, multi-domain controlled experiments.
 
-- Discovered format-content coupling is governed by a generation-budget window, not capacity alone
-- Four architectures exhibit four distinct failure modes below the window threshold
-- Cross-architecture validation on Qwen, Llama, Gemma, Phi3
+- Designed and executed large-scale controlled experiments on format-content interaction in RAG
+- Proposed behavioral observation framework; discovered cross-architecture behavioral patterns
+- Identified and corrected measurement artifacts in the analysis pipeline
+- Manuscript in progress
 
 ---
 
