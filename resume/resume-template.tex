@@ -1,0 +1,63 @@
+% 中文简历 LaTeX 模板
+% 配套 pandoc 使用：把 Markdown 内容按此模板样式渲染为 PDF
+\documentclass[10pt,a4paper]{article}
+
+% ===== 页面与中文 =====
+\usepackage[UTF8,fontset=windows]{ctex}
+\usepackage[top=0.8cm,bottom=0.8cm,left=1.0cm,right=1.0cm]{geometry}
+
+% ===== 基础包 =====
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{booktabs}
+
+% ===== 颜色 =====
+\definecolor{linkblue}{RGB}{0,82,147}
+\definecolor{sectiongray}{RGB}{80,80,80}
+\definecolor{rulegray}{RGB}{180,180,180}
+
+% ===== 超链接 =====
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkblue,
+  urlcolor=linkblue,
+  pdftitle={$title$},
+  pdfauthor={$author$}
+}
+
+% ===== 页面无页眉页脚 =====
+\pagestyle{empty}
+
+% ===== 一级标题：姓名（居中、大号、加粗）=====
+\titleformat{\section}{\centering\LARGE\bfseries}{}{0em}{}[\vspace{-6pt}]
+\titlespacing*{\section}{0pt}{0pt}{4pt}
+
+% ===== 二级标题：模块标题（教育背景、项目经历等）=====
+\titleformat{\subsection}{\normalsize\bfseries\color{sectiongray}}{}{0em}{}[{\color{rulegray}\titlerule[0.5pt]}]
+\titlespacing*{\subsection}{0pt}{5pt}{2pt}
+
+% ===== 三级标题：项目/经历名称 =====
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsubsection}{0pt}{3pt}{0pt}
+
+% ===== 行距与段落间距 =====
+\linespread{1.02}
+\setlength{\parskip}{1pt}
+
+% ===== 列表紧凑化 =====
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlist[itemize]{leftmargin=1.2em,itemsep=0pt,parsep=0pt,topsep=0pt}
+
+% ===== 表格列类型 =====
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\begin{document}
+$body$
+\end{document}

@@ -1,0 +1,14 @@
+# Obsidian workspace settings
+.obsidian/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Resume preview artifacts (keep PDFs)
+resume/*-preview-*.png
