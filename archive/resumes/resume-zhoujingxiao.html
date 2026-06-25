@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周景潇 — 个人简历</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 18mm 16mm;
+    background: #fff;
+  }
+  h1 { font-size: 18pt; font-weight: 700; letter-spacing: 1pt; margin-bottom: 2pt; }
+  .contact { font-size: 9.5pt; color: #555; margin-bottom: 14pt; }
+  .contact span { margin-right: 16pt; }
+  .contact a { color: #2563eb; text-decoration: none; }
+  h2 {
+    font-size: 11pt; font-weight: 700; letter-spacing: 0.5pt;
+    border-bottom: 1.5pt solid #1a1a1a; padding-bottom: 2pt;
+    margin-top: 14pt; margin-bottom: 6pt;
+  }
+  h3 { font-size: 10.5pt; font-weight: 700; margin-top: 8pt; }
+  .meta { font-size: 9.5pt; color: #555; margin-bottom: 2pt; }
+  .meta strong { color: #1a1a1a; }
+  ul { padding-left: 14pt; margin-bottom: 6pt; }
+  li { margin-bottom: 1.5pt; font-size: 10pt; }
+  .highlight { background: #f0f4ff; padding: 1pt 3pt; border-radius: 2pt; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 6pt; font-size: 10pt; }
+  table td { padding: 2pt 6pt 2pt 0; vertical-align: top; }
+  table td:first-child { font-weight: 600; white-space: nowrap; width: 90pt; color: #444; }
+  .skills td:first-child { width: 80pt; }
+  .badge {
+    display: inline-block; background: #1a1a1a; color: #fff;
+    font-size: 8pt; padding: 1pt 5pt; border-radius: 2pt; margin-right: 3pt;
+  }
+  .section-note { font-size: 9pt; color: #777; margin-top: 10pt; }
+</style>
+</head>
+<body>
+
+<h1>周景潇</h1>
+<div class="contact">
+  <span>📱 136****6112</span>
+  <span>📧 2241470466@qq.com</span>
+  <span>🔗 <a href="https://github.com/juice094">github.com/juice094</a></span>
+</div>
+
+<h2>教育背景</h2>
+<p><strong>甘肃农业大学</strong> — 工学学士（预计），数据科学与大数据技术</p>
+<p class="meta">2023.09 – 2027.06 | 信息科学技术学院 | 均分 83 · 核心专业课均分 86 · 专业排名 <strong>前 10%</strong></p>
+<p style="font-size:10pt;margin-top:2pt;">核心课程：数据结构(90)、数据库原理(86)、大数据挖掘与应用(97)、数据存储与处理技术(96)、操作系统(87)、算法设计与分析(81)</p>
+
+<h2>技能清单</h2>
+<table class="skills">
+  <tr><td>编程语言</td><td><strong>Rust</strong>（主力）&nbsp;·&nbsp; Python &nbsp;·&nbsp; Go &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; SQL</td></tr>
+  <tr><td>前端框架</td><td>Vue 3 &nbsp;·&nbsp; Next.js &nbsp;·&nbsp; eframe / egui</td></tr>
+  <tr><td>数据库与检索</td><td>SQLite &nbsp;·&nbsp; Tantivy BM25 &nbsp;·&nbsp; 向量搜索 &nbsp;·&nbsp; Hadoop / Spark / Kafka</td></tr>
+  <tr><td>AI / Agent</td><td>MCP 工具生态 &nbsp;·&nbsp; ReAct / Plan 双模式 Agent &nbsp;·&nbsp; RAG 检索增强 &nbsp;·&nbsp; Candle 本地推理</td></tr>
+  <tr><td>网络与协议</td><td>P2P 协议设计 &nbsp;·&nbsp; TCP+TLS &nbsp;·&nbsp; WebSocket / SSE &nbsp;·&nbsp; prost 编解码 &nbsp;·&nbsp; NAT 穿透</td></tr>
+  <tr><td>工程实践</td><td>测试驱动开发（<strong>2000+ 测试</strong>）&nbsp;·&nbsp; CI/CD 门禁 &nbsp;·&nbsp; 多 crate 架构拆分 &nbsp;·&nbsp; OpLog 审计</td></tr>
+</table>
+
+<h2>项目经历</h2>
+
+<h3>Clarity — AI Agent 运行时框架</h3>
+<p class="meta"><strong>项目发起人 / 核心维护者</strong> &nbsp;|&nbsp; 2026.04 – 至今 &nbsp;|&nbsp; github.com/juice094/clarity</p>
+<p style="font-size:10pt;">设计"本地优先、单二进制、零外部运行时依赖"的 Agent 框架。主导 14 个 Rust crate 的模块拆分与接口契约设计，建立 contract 层零内部依赖、core 层零前端依赖的架构约束。实现 ReAct / Plan 双模式 Agent 循环、多 Agent 协作调度、MCP stdio/SSE/WebSocket 三传输、BM25+向量混合记忆检索、Candle 本地 GGUF 推理、eframe/egui 桌面 GUI 与四层 Approval 审批链。<strong>累计 1100+ lib 测试通过，生产代码零 unwrap/expect。</strong></p>
+<ul>
+  <li><strong>技术亮点：</strong>MCP 三传输适配层；BM25+向量混合检索实现上下文精准召回；core 层与前端完全解耦</li>
+  <li><strong>质量门禁：</strong>clippy 0 warning；所有 public API 强制文档注释；四层审批链保障 Agent 行为可控</li>
+</ul>
+
+<h3>devbase — 开发者工作空间编译器</h3>
+<p class="meta"><strong>项目发起人 / 核心维护者</strong> &nbsp;|&nbsp; 2026.04 – 至今 &nbsp;|&nbsp; github.com/juice094/devbase</p>
+<p style="font-size:10pt;">面向多仓库、多智能体协作场景，设计并迭代 71 个 MCP 工具的开发者工作空间编译器。主导从原始代码/笔记到结构化情境的完整 pipeline：tree-sitter 解析 → Tantivy BM25 + SQL 向量索引 → 检索 → 推理调用。集成 ratatui 终端仪表盘、SQLite WAL 并发存储与 OpLog 审计机制。<strong>500+ 测试通过，Schema 迁移自动备份。</strong></p>
+<ul>
+  <li><strong>技术亮点：</strong>纯 SQL 实现 cosine_similarity UDF 向量搜索；tree-sitter 多语言代码结构化解析；Workflow YAML 编排 Skill 生命周期</li>
+  <li><strong>质量门禁：</strong>Registry 写入强制 OpLog 审计留痕；健康检查自动化；Skill 发布流程标准化</li>
+</ul>
+
+<h3>syncthing-rust — P2P 文件同步引擎</h3>
+<p class="meta"><strong>项目发起人 / 核心维护者</strong> &nbsp;|&nbsp; 2026.04 – 至今 &nbsp;|&nbsp; github.com/juice094/syncthing-rust</p>
+<p style="font-size:10pt;">以 Rust 重写 Syncthing BEP 协议栈，主导 8 个 crate 的协议-传输-同步分层架构。负责 prost 协议编解码、TCP+TLS 传输层、设备发现与 Relay 中继、文件索引与块级同步、REST API 服务。独立解决 P2P/NAT/防火墙穿透问题，实现 Version Vector 冲突消解。<strong>lib 测试 327+ 通过，跨网络部署验证可行。</strong></p>
+<ul>
+  <li><strong>技术亮点：</strong>Tailscale 集成绕过防火墙包检测；Windows 系统托盘与 TUI 双端支持；协议握手栈完整自研</li>
+  <li><strong>质量门禁：</strong>clippy 0 warning；跨网络场景可复现验证</li>
+</ul>
+
+<h2>资格认证</h2>
+<p style="font-size:10pt;">AI 应用工程师（中级）— 工业和信息化部认证 &nbsp;|&nbsp; 日语专业四级（72 分） &nbsp;|&nbsp; C1 驾驶证</p>
+
+<h2>求职意向</h2>
+<table>
+  <tr><td>岗位偏好</td><td>大数据、AI 应用、后端开发、工具平台、分布式系统</td></tr>
+  <tr><td>意向城市</td><td>上海 · 北京 · 深圳 · 杭州 · 成都 · 南京 · 苏州 · 西安</td></tr>
+  <tr><td>工作类型</td><td>实习（可转正优先）</td></tr>
+  <tr><td>到岗时间</td><td>可尽快到岗</td></tr>
+  <tr><td>是否调剂</td><td>服从调剂</td></tr>
+</table>
+
+<div class="section-note">📎 岗位匹配分析见附件：《周景潇-岗位匹配与投递建议》</div>
+
+</body>
+</html>
