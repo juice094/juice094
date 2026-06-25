@@ -14,10 +14,10 @@
 
 ## 技能
 
-- **语言**：Rust（主力）、Python（熟练，学校授课 + 项目脚本）、Java（熟悉，学校授课）、TypeScript/Vue（课程）、Go（阅读级）
-- **系统**：tokio 异步、TLS 1.3、UDP/TCP、NAT 穿透、SQLite WAL
-- **AI / Agent**：MCP 协议（stdio/SSE/WebSocket）、ReAct+Plan Agent、RAG、BM25+向量搜索
-- **工程**：62-crate workspace 管理、TDD、CI/CD、OpLog 审计
+- **语言**：Rust（主力，3 年）、Python（研究，数据分析）
+- **系统**：tokio 异步、TLS 1.3、NAT 穿透、SQLite WAL
+- **AI / Agent**：MCP 协议（stdio/SSE/WebSocket）、ReAct+Plan Agent、RAG、BM25+向量搜索、Multi-Agent 调度
+- **工程**：Cargo Workspace 分层架构、Contract-First 设计、CI/CD、零 production panic 基线
 
 ---
 
@@ -38,7 +38,7 @@
 ## 项目经历
 
 ### Clarity — AI Agent 运行时
-**Rust** · 25 crates · 1,243 tests · 152K LOC · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 - 至今
+**Rust** · 22 活跃 workspace crates · 1,889 测试全通过 · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 - 至今
 
 本地优先的 AI Agent 运行时，单二进制编排 LLM、MCP 工具、记忆系统。
 
@@ -57,7 +57,7 @@
 - SQLite WAL + OpLog 审计，预编译二进制 ~8.7MB
 
 ### syncthing-rust — P2P 文件同步引擎
-**Rust** · 8 crates · 5 binaries · 59K LOC · [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.04 - 至今
+**Rust** · 13 workspace crates · 58,848 行 · 392 测试通过 · [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.04 - 至今
 
 Go Syncthing 的 Rust 重实现，BEP 协议 wire 级兼容。
 
