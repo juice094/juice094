@@ -746,3 +746,116 @@ for i in 0..4 {
     });
 }
 ```
+
+---
+
+## 14. Rust + WebAssembly 面试专题
+
+> 候选人已有多项目公网部署经验：Clarity 前端、student-era 子项目部署于 Vercel；syncthing-rust 部署于日本 VPS。Rust→Wasm 是面试中展示全栈能力的关键加分项。
+
+### 14.1 生态工具速查
+
+| 工具 | 用途 | 一句话 |
+|------|------|--------|
+| **wasm-bindgen** | Rust-JS 互操作 | 自动生成 JS 绑定：Rust 函数可直接被 JS 调用，JS 对象可传入 Rust |
+| **wasm-pack** | 构建+打包 | `wasm-pack build --target web` 一键编译 Wasm + 生成 npm 包 |
+| **wasm-bindgen-futures** | 异步桥接 | 将 Rust Future 转换为 JS Promise，打通 tokio 异步模型到浏览器事件循环 |
+| **gloo** | 浏览器 API | Rust 风格的 `window.alert()`、`fetch()`、`setTimeout()`、`console.log()` |
+| **web-sys** | 原始 Web API | `wasm-bindgen` 自动生成的 DOM API 绑定（Document, Element, Event 等） |
+| **js-sys** | JS 内置对象 | Array, Object, Map, Set, Promise, JSON 的 Rust 绑定 |
+| **yew** | 组件框架 | Rust 版 React——虚拟 DOM + 组件化 + hooks + 宏 |
+| **trunk** | 构建工具 | Wasm 应用的 webpack 替代品——`trunk serve` 热重载，`trunk build --release` 生产构建 |
+| **console_error_panic_hook** | 调试 | `set_once()` 将 Rust panic 栈信息打印到浏览器 console |
+| **wee_alloc** | 内存分配器 | 针对 Wasm 优化的小体积分配器（~1KB），替代默认 allocator |
+
+### 14.2 wasm-bindgen 核心机制
+
+`#[wasm_bindgen]` 不是简单的 FFI 宏而是自动绑定生成器。它做三件事：
+
+1. **自动生成 JS 胶水代码（shim）**——编译时生成 `.js` 和 `.d.ts` 文件，JS/TS 侧直接 import
+2. **类型自动转换**——Rust `String` ↔ JS `string`、`Vec<u8>` ↔ `Uint8Array`、`Result<T, JsValue>` ↔ 抛出 JS exception
+3. **内存管理**——Rust 侧分配的 Wasm 线性内存由 Rust 所有权管理，JS 侧通过 wrapper 对象持有引用计数
+
+```rust
+use wasm_bindgen::prelude::*;
+
+// 简单函数——JS 侧直接 import { greet } from './pkg'
+#[wasm_bindgen]
+pub fn greet(name: &str) -> String {
+    format!("Hello, {}!", name)
+}
+
+// 复杂类型——自动生成 JS class
+#[wasm_bindgen]
+pub struct Calculator { value: u32 }
+
+#[wasm_bindgen]
+impl Calculator {
+    #[wasm_bindgen(constructor)]
+    pub fn new(v: u32) -> Calculator { Calculator { value: v } }
+    pub fn add(&mut self, n: u32) -> u32 { self.value += n; self.value }
+}
+// JS: const c = new Calculator(10); c.add(5); // 15
+```
+
+### 14.3 异步模型桥接
+
+Rust Wasm 是**浏览器主线程单线程模型**，不能使用 `tokio::spawn`（需要多线程运行时）。替代方案：
+
+```rust
+use wasm_bindgen_futures::spawn_local;
+use gloo::timers::future::TimeoutFuture;
+
+// Rust async/await 直接跑在浏览器事件循环上
+#[wasm_bindgen]
+pub async fn delayed_greet(name: String) -> String {
+    TimeoutFuture::new(1_000).await;  // 不阻塞主线程
+    format!("Hello, {}!", name)
+}
+
+// 入口——将 Future 提交到浏览器微任务队列（等效 JS Promise.then）
+#[wasm_bindgen(start)]
+pub fn main() {
+    console_error_panic_hook::set_once();
+    spawn_local(async {
+        let result = delayed_greet("World".into()).await;
+        gloo::console::log!(result);
+    });
+}
+```
+
+### 14.4 为什么 Rust + Wasm 是前端计算密集型任务的终局方案
+
+| 场景 | 纯 JS 方案 | Rust→Wasm 方案 | 性能提升 |
+|------|-----------|---------------|---------|
+| 图片处理/滤镜 | Canvas API + JS 循环 | Rust 直接操作像素 buffer | 5-20x |
+| 序列化（Protobuf/JSON） | JS 运行时解析 | Rust 编译时优化 + 零拷贝 | 3-10x |
+| 加密/哈希（SHA-256） | JS crypto 库 | Rust ring/ed25519-dalek | 2-5x |
+| 文本解析（Markdown） | JS 解析器 | Rust pulldown-cmark | 3-8x |
+| 物理模拟/游戏 | JS 脚本 | Rust 计算 + Wasm 渲染 | 10-50x |
+
+**面试金句**："Wasm 不替代 JS——让 JS 做 DOM 操作和事件处理，把计算密集型任务卸载到 Rust/Wasm。这是异构计算思想在浏览器端的应用。选择 Wasm 的时机：当 profiling 显示某个 JS 函数占据了 >10% 的主线程时间，且逻辑是纯计算（无 DOM 操作），就该考虑用 Rust 重写这部分。"
+
+### 14.5 Wasm 线性内存 vs JS 堆
+
+| 维度 | JS 引擎 | Wasm 线性内存 |
+|------|---------|-------------|
+| 内存模型 | GC 托管堆 | 连续字节数组（32位地址空间，4GB上限） |
+| 分配 | 自动（GC） | Rust 所有权管理（编译时） |
+| 释放 | GC 不可预测 | 确定性（Drop trait） |
+| 跨语言传递 | 引用共享 | 默认拷贝，零拷贝需 `wasm_bindgen::memory()` 获取 `ArrayBuffer` 视图 |
+| 适合场景 | DOM操作、UI | 密集计算、数据处理 |
+
+**面试追问"Wasm 内存如何与 JS 共享数据？"**
+- 拷贝方式：`wasm_bindgen` 默认序列化/反序列化——每次 FFI 调用都拷贝，适合小数据
+- 零拷贝方式：`wasm_bindgen::memory()` 获取 Wasm 内存的 `ArrayBuffer` 视图，JS 侧通过 `Uint8Array` 直接读写——适合大块数据（图片 buffer、模型权重）
+- 候选人实践："GGUF 模型权重通过 mmap 加载，避免拷贝——Rust 零成本抽象在 Wasm 场景的典型应用"
+
+### 14.6 候选人 Wasm 相关能力展示
+
+| 能力点 | 对应经验 | 面试话术 |
+|--------|---------|---------|
+| Rust→Wasm 编译链路 | wasm-pack + trunk | "完整走过 wasm-pack build → npm publish → Vercel 部署全链路" |
+| 公网部署 | Clarity + student-era 部署于 Vercel | "Rust Wasm 应用通过 CDN 全球边缘分发，用户浏览器直接运行编译后的 Wasm" |
+| 跨平台条件编译 | Candle Wasm 后端 | "`#[cfg(target_arch = 'wasm32')]` 同一套代码编译到 Wasm 和 Native 两个目标" |
+| 海外部署 | syncthing-rust 部署于日本 VPS | "P2P 节点跨墙部署，通过 Tailscale 组网，有实际跨国运维经验" |

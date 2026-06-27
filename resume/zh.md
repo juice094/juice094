@@ -119,4 +119,14 @@
 
 ## 自我评价
 
-大三在读，2025.11-2026.06 独立设计并交付三个生产级 Rust 系统（合计 44+ workspace crate、2,500+ 测试全通过）。从 BEP 协议栈到 Agent 内核到世界模型编译器，均从零构建。具备独立闭环能力：发现问题 → 设计实验 → 实现系统 → 写论文。对 AI Agent 核心架构有从 0 到 1 的工程理解——Contract-First 分层、ReAct/Plan 双模式循环、MCP 协议四传输、混合记忆系统。Rust + AI Agent 双稀缺组合，具备将底层系统设计能力迁移到多语言业务栈的基础。最深刻的工程教训：在 syncthing-rust 中花了两天排查一个 Windows 文件句柄泄漏 bug——最终发现是 drop 顺序问题，学会用 tracing span 做生命周期审计。
+大三在读，2025.11-2026.06 独立设计并交付三个生产级 Rust 系统（合计 44+ workspace crate、2,500+ 测试全通过）。从 BEP 协议栈到 Agent 内核到世界模型编译器，均从零构建。具备独立闭环能力：发现问题 → 设计实验 → 实现系统 → 写论文。对 AI Agent 核心架构有从 0 到 1 的工程理解——Contract-First 分层、ReAct/Plan 双模式循环、MCP 协议四传输、混合记忆系统。Rust + AI Agent 双稀缺组合，具备将底层系统设计能力迁移到多语言业务栈的基础。
+
+### 公网部署经验
+
+| 项目 | 平台 | 说明 |
+|------|------|------|
+| **Clarity** Web 前端 | Vercel | Rust→Wasm 编译后通过 CDN 全球边缘分发，用户在浏览器直接运行编译后的 Wasm |
+| **student-era** 子项目 | Vercel | Vue 3 课程设计项目公网可访问，包含多个交互式前端 demo |
+| **syncthing-rust** P2P 守护进程 | 日本 VPS | 跨墙部署 P2P 文件同步节点，通过 Tailscale 与国内 Windows 桌面端组网，实际跨国运维 |
+
+> 多个项目有公网可访问的部署实例——不是只跑在 localhost 的本地玩具。这意味着理解 DNS、HTTPS、CDN 边缘分发、VPS 运维、跨国网络连通性等生产环境要素。最深刻的工程教训：在 syncthing-rust 中花了两天排查一个 Windows 文件句柄泄漏 bug——最终发现是 drop 顺序问题，学会用 tracing span 做生命周期审计。
