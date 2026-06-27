@@ -79,11 +79,31 @@
     2241470466\@qq.com \| 13626566112 \
     #link("https://github.com/juice094")[github.com/juice094]
   ],
-  // 右侧：达摩院 Logo — 高度限制为页眉区域
+  // 右侧：达摩院标识块（无外部图片依赖，纯Typst渲染）
   align(right + horizon)[
-    #box(
-      height: 2.2cm,  // 控制 Logo 总高度在 2.2cm 以内
-      image("damo-logo.png", fit: "cover"),
+    #set text(fill: primary)
+    #block(
+      width: 4.2cm,
+      height: 2.2cm,
+      stroke: 1.5pt + accent,
+      fill: rgb("#f8f8fa"),
+      inset: 8pt,
+      align(center + horizon)[
+        #set text(size: 7pt, weight: "bold", fill: accent, tracking: 3pt)
+        ALIBABA
+        #v(0.15em)
+        #set text(size: 10pt, weight: "black", fill: primary)
+        DAMO Academy
+        #v(0.1em)
+        #set text(size: 7.5pt, fill: gray)
+        阿里巴巴达摩院
+        #v(0.1em)
+        #box(
+          height: 0.8pt,
+          width: 80%,
+          fill: accent,
+        )
+      ]
     )
   ],
 )
