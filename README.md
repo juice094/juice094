@@ -134,9 +134,9 @@ juice094/
 │   ├── 周景潇-简历.pdf                # LaTeX 编译
 │   ├── 周景潇-简历-达摩院-typst.pdf    # Typst 编译
 │   └── templates/                     # LaTeX + Typst 模板
-├── 求职战备/                           ← 面试备考资料库（13份文档）
+├── 求职战备/                           ← 学习与面试备考（13份文档，公开）
 │   ├── 学习路线图/                     # 三项目分级学习路径
-│   ├── 项目面试攻略/                   # 15-20 个 Q&A + 话术 + 反问
+│   ├── 项目面试攻略/                   # 技术 Q&A + 项目话术
 │   ├── 通用八股/                       # Rust / AI-Agent / 系统设计 / 后端综合
 │   └── 面经/                           # 公司特点 + 薪资 + BQ 策略
 ├── projects/                          # 各项目详细文档
@@ -215,7 +215,7 @@ juice094/
 &nbsp;&nbsp;·&nbsp;&nbsp;
 📄 RAG 实证研究（论文撰写中）
 &nbsp;&nbsp;·&nbsp;&nbsp;
-🔍 寻求 2027 AI Agent / 后端 / 系统 实习
+🔍 寻求 2027 AI Agent / 后端 / 系统 实习 · 2026.07 可到岗（3-6个月，每周5天）
 &nbsp;&nbsp;·&nbsp;&nbsp;
 🌐 项目部署于 Vercel + 日本 VPS
 
@@ -225,7 +225,7 @@ juice094/
 
 [通用版](resume/resume-general.md) · [深挖版](resume/zh.md) · [讯飞定向](resume/resume-keda-ai-agent.md) · [达摩院定向](resume/resume-damo-academy.md) · [通用PDF](resume/周景潇-简历.pdf) · [达摩院PDF](resume/周景潇-简历-达摩院-typst.pdf)
 
-[📁 求职战备资料库](求职战备/) —— 学习路线图 · 面试攻略 · 八股文 · 面经
+[📁 学习与面试备考资料](求职战备/) —— 项目学习路线图 · 技术八股文 · 面试经验总结（公开，可供其他求职者参考）
 
 ---
 
