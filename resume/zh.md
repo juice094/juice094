@@ -30,18 +30,19 @@
 | 8 | **RAG / 检索增强** | 在 Clarity 中实现 BM25 + 向量混合检索 + SQLite 记忆持久化。在耦合论文中设计受控实验评估检索深度对输出结构的影响。支持 PDF / md / txt / Word 多种文档。 |
 | 9 | **PyTorch** | 使用 ResNet18 + OpenCV 完成苹果质量分类（student-era/ml-apple-detection），训练 50 epoch。理解 DataLoader、transform、TensorBoard 诊断流程。 |
 | 10 | **Protobuf / prost** | syncthing-rust 的 BEP 协议完全基于 protobuf 定义编译生成，Clarity 的 WireMessage 使用 prost 做跨前端消息序列化。 |
+| 11 | **TypeScript / Vue 3** | student-era 多课程前端项目、personal-portal 个人主页。组件化开发、响应式布局、pnpm monorepo。 |
 
 ---
 
-## 项目经历
+## 个人项目
 
 ### Clarity — 本地优先 AI Agent 运行时
 
 **S**：从零构建的本地 AI 运行时，单二进制编排 LLM、MCP 工具、记忆系统与多 Agent 协作。零 Python / Node.js / Ollama 外部依赖。6 个前端入口共享同一 Agent 内核。
 
-**T**：Rust · 22 workspace crates · tokio · SQLite · Candle GGUF · protobuf · egui / ratatui / Axum
+**T**：Rust · 22 workspace crates · tokio · SQLite · Candle GGUF · protobuf · egui / ratatui / Axum · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 - 至今
 
-**A — R**（只想让面试官问的 4 条）：
+**A — R**：
 | 做了什么 | 量化结果 |
 |:---|:---|
 | 设计 Contract-First 分层架构（contract 层零内部依赖、单向引用） | 新功能平均只改 1 层，编译时零循环引用 |
@@ -50,6 +51,14 @@
 | 设计跨前端 SPMC 事件总线（WireMessage 统一协议） | 6 前端共享同一内核，各前端不互相 import |
 | 解决 egui Pretext 文字测量精度问题 | 1000 条消息渲染高度偏差 1.45%，estimate/render 分别 74µs / 136µs |
 | 工程基线 | 1,889 测试全通过，Clippy 零 warning，零 unwrap/expect |
+
+### 学生项目集 — [student-era](https://github.com/juice094/student-era)
+**Vue 3 / Python / JavaScript** · 多课程归档 · 2025.09 - 至今
+
+- **机器学习**：PyTorch + ResNet18 苹果质量检测（8 分类）、天气预测回归
+- **Web 前端**：Vue 3 课程设计（组件化、响应式）、HTML5 Canvas 游戏开发
+- **数据工程**：Hadoop/Spark/Kafka 课程实验、GIS 空间数据分析
+- **学术写作**：农业论文编译、Zephyrus 论文分析
 
 ---
 
@@ -89,6 +98,8 @@
 ## 研究经历
 
 ### 检索增强生成中输出结构的实证研究（2026.03 — 至今）
+
+代码仓库：[acr-select](https://github.com/juice094/acr-select)
 
 | S | 围绕 RAG 系统中输出格式与内容质量的交互关系，设计并执行受控实验框架 |
 |:---|:---|

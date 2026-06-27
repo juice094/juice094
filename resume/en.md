@@ -1,6 +1,6 @@
 # Zhou Jingxiao
 
-**13626566112** · **2241470466@qq.com** · **github.com/juice094**
+**13626566112** · **2241470466@qq.com** · **[github.com/juice094](https://github.com/juice094)**
 **AI / Backend / Systems Engineering** · Shanghai/Hangzhou/Shenzhen · Available 2026.07
 
 ---
@@ -34,20 +34,20 @@ GPA 83/100 · Core courses 86/100 · Top 10%
 
 ### Empirical Study of Output Structure in RAG (2026.06 — present)
 
-Independent research under faculty guidance. Built a controlled experiment framework to study format-content interaction in retrieval-augmented generation.
+Independent research under faculty guidance. Built a controlled experiment framework to study format-content interaction in retrieval-augmented generation. Repo: [acr-select](https://github.com/juice094/acr-select)
 
 - Designed and executed multi-model × multi-domain × multi-depth controlled experiments (~40 conditions, 3,000+ samples)
 - Proposed a behavioral observation framework decomposing model output into format and content dimensions with independent scoring axes
 - Cross-validated the framework across four model architectures
 - Identified measurement artifacts in the analysis pipeline and designed a unified scoring protocol
-- Manuscript in progress
+- Experiments complete; manuscript drafting
 
 ---
 
 ## Projects
 
 ### Clarity — Local-First AI Agent Runtime
-**Rust** · 22 active workspace crates · 1,889 tests passing · 2026.04 - present
+**Rust** · 22 active workspace crates · 1,889 tests passing · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 – present
 
 Single-binary local AI runtime: LLM orchestration, MCP tools, memory systems, multi-agent collaboration. Zero Python/Node.js/Ollama dependencies.
 
@@ -59,7 +59,7 @@ Single-binary local AI runtime: LLM orchestration, MCP tools, memory systems, mu
 - **Engineering baseline**: 1,554 lib + 275 bin + 34 doc + 26 integration tests passing, Clippy zero warnings, zero production unwrap/expect
 
 ### syncthing-rust — P2P File Sync Engine
-**Rust** · 13 workspace crates · 58,848 LOC · 392 tests passing · 2026.04 - present
+**Rust** · 13 workspace crates · 58,848 LOC · 392 tests passing · [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.05 – present
 
 Wire-compatible Rust reimplementation of Go Syncthing BEP protocol. Single static binary ~13MB.
 
@@ -77,6 +77,14 @@ Compiles local Git repos, PARA notes, Skill scripts, and YAML workflows into AI-
 - **Zero-cloud semantic search**: SQLite BLOB + custom cosine_similarity UDF replacing external vector DB; Candle/Ollama local embedding backends; zero ML runtime dependency by default
 - **Architecture governance**: G1-G7/RF-1-RF-7 invariant enforcement via CI; zero production unwrap/expect/panic
 - **Engineering constraints**: CLI entry point capped at 836 lines; crate split requires >5 internal crate:: references
+
+### Student Portfolio — [student-era](https://github.com/juice094/student-era)
+**Vue 3 / Python / JavaScript** · Multi-course archive · 2025.09 – present
+
+- **Machine Learning**: PyTorch + ResNet18 apple quality detection (8-class), weather prediction
+- **Web Frontend**: Vue 3 course design, HTML5 Canvas game development
+- **Data Engineering**: Hadoop/Spark/Kafka labs, GIS spatial analysis
+- **Academic Writing**: Agricultural paper compilation, Zephyrus paper analysis
 
 ---
 

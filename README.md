@@ -11,7 +11,7 @@
 <img src="https://img.shields.io/badge/AI_Systems-4B32C3?style=flat-square&logo=openai&logoColor=white">
 <img src="https://img.shields.io/badge/Distributed-FF6B35?style=flat-square&logo=databricks&logoColor=white">
 <img src="https://img.shields.io/badge/P2P-00ADD8?style=flat-square&logo=syncthing&logoColor=white">
-<img src="https://img.shields.io/badge/AGPL--3.0-3DA639?style=flat-square&logo=gnu&logoColor=white">
+<img src="https://img.shields.io/badge/Open_Source-3DA639?style=flat-square&logo=opensourceinitiative&logoColor=white">
 
 </div>
 
@@ -49,6 +49,22 @@ Systems builder. 大三，甘肃农业大学大数据。独立设计并实现三
               │  RAG评估 · 论文   │
               └───────────────────┘
 ```
+
+---
+
+## 🎓 Student Portfolio
+
+> Course projects archive — organized under [`student-era`](https://github.com/juice094/student-era).
+
+| Project | Stack | Course |
+|:---|:---|:---|
+| [student-era](https://github.com/juice094/student-era) | Vue 3 / Python / JS / ECharts | 多课程归档入口 — 论文 · 简历 · 实验报告 |
+| [ml-course-experiments](https://github.com/juice094/ml-course-experiments) | PyTorch / ResNet18 / scikit-learn | 机器学习 — 苹果检测 · 天气预测 |
+| [course-design-web-frontend](https://github.com/juice094/course-design-web-frontend) | Vue 3 / pnpm | 2026春 Web 前端课程设计 |
+| [course-design-canvas-game](https://github.com/juice094/course-design-canvas-game) | HTML5 Canvas / JavaScript | 2026春 Canvas 游戏开发 |
+| [vue-web-worker-lab](https://github.com/juice094/vue-web-worker-lab) | Vue 3 / Web Worker | 2026春 数值计算与多线程实验 |
+
+> *Consolidation in progress — these will migrate under `student-era` as a unified student portfolio.*
 
 ---
 
@@ -124,8 +140,9 @@ Embedding providers · Syncthing client
 | Project | |
 |:---|:---|
 | [pretext-rust](https://github.com/juice094/pretext-rust) | Rust port of Pretext: multilingual text measurement & line-breaking |
-| [turbovec](https://github.com/juice094/turbovec) | Vector index on TurboQuant, Rust + Python bindings |
-| [skills-DBA](https://github.com/juice094/skills-DBA) | Skill database admin: local index, search, multi-source sync |
+| [personal-portal](https://github.com/juice094/personal-portal) | Vue 3 + Glassmorphism personal homepage portal |
+| [steamtools-accelerator](https://github.com/juice094/steamtools-accelerator) | HTTP/HTTPS reverse proxy & traffic hijacking in Rust |
+| [skills-DBA](https://github.com/juice094/skills-DBA) | `[Archived]` Skill database admin: local index, search, multi-source sync |
 
 ---
 
