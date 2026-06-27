@@ -17,7 +17,7 @@
 
 ## 个人简介
 
-数据科学专业本科在读，**Rust 主力（3年）**、**Python 熟练**、**Java 熟悉**。独立设计并实现 **22-crate 本地 AI Agent 运行时**（1,889 测试全通过，零 Clippy 警告），深度覆盖 LLM 智能体核心架构、RAG 混合检索系统、四级记忆压缩、MCP 协议四传输实现（stdio/SSE/HTTP/WebSocket）、Multi-Agent 并行调度与后端服务开发。熟悉 ReAct / Plan 双模式 Agent 循环、BM25 + 向量混合检索（RRF 融合）、四层审批链与事件驱动架构。MCP 协议是国内最早的系统性实践者之一。具备将底层 Agent 架构设计能力迁移到 Python/Java 业务栈的工程基础。
+数据科学专业大三在读，**Rust 主力（3年）**、**Python 熟练**、**Java 熟悉**。2025.11-2026.06 独立设计并实现 **22-crate 本地 AI Agent 运行时**（1,889 测试全通过，零 Clippy 警告），深度覆盖 LLM 智能体核心架构、RAG 混合检索系统、四级记忆压缩、MCP 协议四传输实现（stdio/SSE/HTTP/WebSocket）、Multi-Agent 并行调度与后端服务开发。熟悉 ReAct / Plan 双模式 Agent 循环、BM25 + 向量混合检索（RRF 融合）、四层审批链与事件驱动架构。MCP 协议是国内最早的系统性实践者之一。具备将底层 Agent 架构设计能力迁移到 Python/Java 业务栈的工程基础。
 
 ---
 
