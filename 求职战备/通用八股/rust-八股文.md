@@ -656,3 +656,93 @@ impl Drop for ThreadPool {
 6. 能解释零 unwrap 策略的工程价值
 7. 能展示 Cargo workspace 管理 22+ crate 的经验
 8. 能讨论 unsafe 的使用边界和 SAFETY 注释规范
+
+---
+
+## 11. 面试常见追问与高质量回答
+
+### Q: Rust 的所有权和 C++ RAII 的本质区别？
+
+C++ RAII 是**约定**——程序员保证构造/析构配对，编译器不强制。Rust 所有权是**编译期验证的 RAII**——编译器跟踪每个值的所有者，确保 drop 在唯一所有者离开作用域时被调用，借用规则保证无悬垂引用。
+
+### Q: Box<T> 和 C++ unique_ptr 的区别？
+
+- `unique_ptr` 可为 null，`Box<T>` 不能为空（永远是有效堆分配）
+- `unique_ptr` 支持自定义 deleter，`Box<T>` 只调用 `Drop::drop`
+- `Box<dyn Trait>` 使用胖指针（ptr+vtable），`unique_ptr<Base>` 依赖虚函数表
+
+### Q: 为什么不所有类型都实现 Copy？
+
+如果都实现 Copy，将失去所有权系统的核心价值——确定性析构和移动语义。`String` 不实现 Copy 因为：1) 堆内存需唯一所有者释放；2) 隐式复制大对象有性能隐患；3) 资源（文件句柄/锁/socket）复制语义无意义。
+
+### Q: tokio::spawn 和 std::thread::spawn 的资源消耗对比？
+
+tokio task 是用户态协程——创建约几微秒，栈约几KB，上下文切换是用户态操作。std thread 是 OS 线程——创建约几毫秒，默认栈 8MB（Linux），上下文切换涉及内核态。一个 tokio 进程可管理数十万 task，OS 线程通常上限几千。代价是 tokio task 不能做 CPU 密集计算（阻塞调度器），需 `spawn_blocking` 分流。
+
+---
+
+## 12. 候选人项目中的 Rust 技术深度展示清单
+
+| 技术点 | 项目 | 面试展示方式 |
+|--------|------|-------------|
+| 22 crate Contract-First 分层 | Clarity | 画依赖 DAG，解释 contract 为何零内部依赖 |
+| SPMC 事件总线替代 RPC | Clarity | 对比 MPSC/SPMC/Broadcast 语义差异 |
+| parking_lot over std::sync | Clarity | 基准对比 + 中毒机制取舍分析 |
+| Candle GGUF FFI 边界 | Clarity | 展示 SAFETY 注释，解释谁负责释放 C 端内存 |
+| 自定义 cosine_similarity SQL UDF | Devbase | 从 &[u8] 到 &[f32] 的零拷贝重解释 |
+| 零 unwrap CI 强制策略 | Devbase | 展示 clippy.toml deny 规则 + CI 日志 |
+| prost + rustls + ed25519 | Syncthing-rust | 展示 wire_compat 测试与 Go 版本对比 |
+| sled COW B+Tree 选型 | Syncthing-rust | 对比 sled vs SQLite vs RocksDB 的适用场景 |
+| rayon 并行 SHA-256 | Syncthing-rust | 对比单线程 vs rayon vs tokio 的性能差异 |
+
+---
+
+## 13. Rust 面试代码速查卡片
+
+```rust
+// HashMap entry API —— 一次查找完成插入或更新
+map.entry(key).and_modify(|v| *v += 1).or_insert(1);
+
+// VecDeque 双端队列 —— BFS/滑动窗口
+let mut q = VecDeque::new();
+q.push_back(root);
+while let Some(node) = q.pop_front() { }
+
+// BinaryHeap 优先队列 —— TopK（最大堆）
+let mut heap = BinaryHeap::new();
+heap.push(item);
+let top = heap.pop().unwrap();
+
+// Reverse 包装器 —— 最小堆
+use std::cmp::Reverse;
+let mut min_heap = BinaryHeap::new();
+min_heap.push(Reverse(item));
+
+// 迭代器链 —— 函数式数据处理
+let result: Vec<i32> = nums.iter()
+    .filter(|&&x| x > 0).map(|&x| x * 2)
+    .take(5).collect();
+
+// 模式匹配 —— 枚举/Option/Result 安全解构
+match result {
+    Ok(Some(value)) if value > 0 => handle(value),
+    Ok(None) => handle_empty(),
+    Err(e) => handle_error(e),
+}
+
+// ? 运算符链 —— 错误传播
+fn process() -> Result<Output> {
+    let input = read_file("input.txt")?;
+    let parsed = parse(&input)?;
+    Ok(transform(parsed)?)
+}
+
+// Arc+Mutex —— 多线程共享可变状态
+let shared = Arc::new(Mutex::new(Vec::new()));
+for i in 0..4 {
+    let shared = Arc::clone(&shared);
+    std::thread::spawn(move || {
+        shared.lock().unwrap().push(i);
+    });
+}
+```

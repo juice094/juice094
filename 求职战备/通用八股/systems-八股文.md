@@ -246,3 +246,72 @@ PostgreSQL 用事务 ID (XID) 判断可见性，MySQL InnoDB 用 undo log + Read
 5. **高层设计**（5-10 min）：画架构图，解释数据流
 6. **深入细节**（5 min）：选 1-2 个关键模块深入
 7. **瓶颈与优化**（3 min）：总结可能的瓶颈和解决方案
+
+---
+
+## 8. 系统设计评分标准与加分项
+
+| 维度 | 权重 | 低分 | 高分 |
+|------|------|------|------|
+| 需求澄清 | 20% | 听完题目直接画图 | 先明确 DAU/QPS/延迟/一致性要求再动手 |
+| 架构合理性 | 30% | 单层架构，无容错 | 分层清晰，可水平扩展，考虑故障域 |
+| 技术选型 | 20% | 只用一个数据库 | 根据场景 trade-off（SQL vs NoSQL、Redis vs Kafka） |
+| 数据模型 | 15% | 缺索引，无分片 | 表结构清晰，有索引和扩展方案 |
+| 沟通 | 15% | 闷头画图不交流 | 边画边解释，邀请面试官参与 |
+
+加分项：主动估算容量数字、引用自己的项目经验、识别瓶颈并给出优化路径。
+
+---
+
+## 9. 候选人项目与系统设计题的映射
+
+| 系统设计题 | 可引用的项目经验 |
+|-----------|----------------|
+| 设计 Agent 平台 | Clarity 的 Agent 循环 + MCP 工具系统 + 四层审批链 |
+| 设计代码搜索引擎 | Devbase 的 tree-sitter + Tantivy + 向量混合搜索 + RRF 融合 |
+| 设计 P2P 同步系统 | Syncthing-rust 的 BEP 协议栈 + 四种发现机制 + 块级同步 |
+| 设计 MCP 网关 | Devbase 的 71 工具路由 + McpTool trait + Stability 分级 |
+| 设计缓存系统 | Clarity 的 LRU 块缓存 + 分层 TTL 策略 |
+
+---
+
+## 10. 十条系统设计铁律
+
+1. 先问问题再画图——确认 DAU/QPS/延迟/一致性/数据规模
+2. 先画高层再深入——LB→Service→Cache→DB 分层开始
+3. 数据模型先于 API——表结构对了，API 自然出来
+4. 每个组件都要有理由——不要堆 Redis+Kafka+ES 只因别人用
+5. 读多写少不等于一定要缓存——先看数据库能不能撑住
+6. 水平扩展不等于银弹——先搞清楚瓶颈在哪
+7. CAP 要具体化——不说选 AP，说分区时通过版本向量最终收敛
+8. 给出数字——不只说加缓存，说命中率 95% 可降 DB 负载 20 倍
+9. 承认不足——设计缺点主动说比被追问好
+10. 关联自己经验——在我的 P2P 项目中，局域网发现延迟 <50ms
+
+---
+
+## 11. 完整设计示例——AI Code Review 系统
+
+需求：PR diff 分析、安全检测、风格检查。50K 审查/天。延迟 <30s。
+
+架构：GitHub Webhook → API Gateway → Review Queue (Kafka) → Review Worker Pool
+Worker：读取 diff → 文件路由（Rust→clippy, Python→ruff, 通用→LLM Agent）
+LLM Agent：ReAct 模式——读 diff → 聚焦到具体行 → 生成建议。先用确定性 checker 过滤，复杂问题交 LLM
+结果聚合：去重 + 优先级排序（安全>Bug>风格）+ Markdown 评论生成
+瓶颈优化：LLM 结果缓存、异步审查不阻塞 CI、Worker 无状态水平扩展
+
+---
+
+## 12. 单机到分布式——从个人项目到大系统的演进路径
+
+| 维度 | 单机方案（当前项目） | 分布式演进 |
+|------|-----------------|-----------|
+| 数据存储 | SQLite 本地 | PostgreSQL + 读写分离 + 分片 |
+| 全文搜索 | Tantivy 嵌入式 | Elasticsearch 集群 |
+| 向量搜索 | SQLite UDF | pgvector / Qdrant 分布式 |
+| 事件总线 | 进程内 SPMC | Kafka / NATS / Redis Streams |
+| Agent 调度 | tokio::spawn | K8s + 消息队列 + 无状态 Worker |
+| 会话管理 | 进程内 HashMap | Redis session store |
+| CI/CD | GitHub Actions | ArgoCD + 蓝绿部署 |
+
+**关键原则**：核型业务逻辑（Agent 循环、MCP 协议、Contract-First）可保持不变——架构良好的价值在于从单机到分布式只需换基础设施层。

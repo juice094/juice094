@@ -280,3 +280,82 @@ GGUF 是量化后模型的文件格式，包含：模型架构定义 + 量化权
 2. 工具层：参数白名单、路径沙盒、权限最小化
 3. 输出层：敏感信息过滤
 4. 审计层：全链路日志
+
+---
+
+## 8. 面试深水区追问（2026高频）
+
+### Q: Agent 如何评估自己工具调用的质量？
+
+在 Clarity 中，每个工具调用后被评估三个维度——1) 是否解决了当前子问题（LLM self-evaluation）；2) 是否有更好的工具可替代（tool suggestion 机制）；3) 调用是否产生副作用（写入操作标记，触发审批升级）。连续 3 次低质量工具调用触发策略降级——从 Yolo 降到 Smart 模式。
+
+### Q: 如何设计一个不依赖具体 LLM 的 Agent 框架？
+
+Contract-First 设计——定义抽象的 `LlmProvider` trait，Agent 循环只依赖 trait 接口。在 Clarity 中切换 OpenAI 到 Anthropic 只需改变 provider 配置，Agent 逻辑零改动。关键抽象点：chat/stream/token_count/model_info 四个核心能力。
+
+### Q: 多 Agent 系统中如何防止信息污染和上下文爆炸？
+
+三重隔离：1) 每个 sub-agent 有独立上下文窗口，不共享对话历史；2) sub-agent 完成后输出结构化摘要而非完整对话；3) 父 Agent 决定信息路由，类似 TCP/IP 路由层。
+
+### Q: 如何处理 Agent 的过度自信问题？
+
+四层防御：1) 置信度校准（high/medium/low 标注）；2) 交叉验证（Multi-Agent debate）；3) 人类回路（高风险操作强制审批）；4) 事后审计（全链路可追溯）。
+
+---
+
+## 9. MCP 协议深度问题
+
+### Q: MCP 的 security model 和 OAuth 有什么不同？
+
+MCP auth 基于 capability——server 声明它提供哪些 tools/resources/prompts，client 获取能力列表。OAuth 是 scope-based（你能访问什么API），MCP 更细粒度——一个 tool 就是一个能力单元。
+
+### Q: 为什么 MCP 设计了三种 primitive 而非只有 Tool？
+
+Tool = Agent主动调用（动作），Resource = Agent被动访问（数据），Prompt = Agent获取模板（指导）。三者对应 Agent 的三种信息需求：执行能力、上下文数据、行为规范。
+
+### Q: MCP stdio 传输的消息边界如何定义？
+
+基于 JSON-RPC 2.0 的换行符分隔（newline-delimited JSON）。实际实现中需处理：1) 消息跨多个 read buffer；2) 空消息过滤；3) 超长消息截断保护。Clarity 中使用 BufReader + read_line 逐行处理。
+
+---
+
+## 10. RAG 系统评估与调优速查
+
+| 问题 | 症状 | 诊断 | 修复 |
+|------|------|------|------|
+| 检索不到相关文档 | Hit Rate 低 | 检查 embedding 模型 | 切换 domain-specific embedding |
+| 检索到不相关文档 | Precision 低 | 检查 BM25 权重 | 调整 RRF 融合权重 |
+| 生成与检索无关 | Faithfulness 低 | 检查 prompt 约束 | 强化引用要求 |
+| 上下文过长 | Token 溢出 | 检查 chunk size | 减小 chunk 或分层摘要 |
+| 多语言效果差 | 非英文 Hit Rate 低 | 检查 tokenizer 语言覆盖 | 使用多语言 embedding（BGE-M3） |
+
+---
+
+## 11. 候选人 AI Agent 项目面试展示清单
+
+| 展示点 | 项目 | 话术关键句 |
+|--------|------|-----------|
+| Agent 双模式 | Clarity | "ReAct 适合探索，Plan 适合结构化——通过任务复杂度自动选择" |
+| MCP 四传输全实现 | Clarity | "国内最早系统性实现 MCP 四传输的实践者之一" |
+| BM25+向量混合 | Clarity | "不用向量数据库，用 SQLite UDF 零拷贝实现语义搜索" |
+| 四级记忆压缩 | Clarity | "模仿人脑记忆模型——工作记忆→短期→长期→事实" |
+| Provider 网格 | Clarity | "6 Provider + 熔断 + 自适应路由——服务网格的 LLM 版本" |
+| 71 MCP 工具 | Devbase | "7条架构红线保证工具质量和幂等性" |
+| RAG 实证研究 | acr-select | "7模型×4架构×3000样本——用数据指导系统设计" |
+
+---
+
+## 12. 热门开放性问题参考回答
+
+### 设计一个支持多轮对话的 AI 客服 Agent
+
+1. 意图识别层：NLU 提取用户意图和实体
+2. 对话管理层：状态机管理流程（问候→信息收集→解决→确认→结束）
+3. 知识检索层：RAG 检索产品文档+FAQ+历史工单
+4. 工具调用层：查订单（API）、退款（需审批）、转人工（Handoff）
+5. 记忆层：短期（本轮对话）+ 长期（用户画像+历史）
+6. 安全层：敏感信息脱敏、操作二次确认、审计日志
+
+### Agent 如何从单步任务进化到多步复杂任务
+
+关键变化：1) 从函数调用到 Plan-and-Execute——先分解再执行；2) 从无状态到有状态——需追踪中间结果和子任务状态；3) 从容错到鲁棒——单步失败不导致整体失败，需重试/重规划；4) 从同步到异步——长任务需后台执行+进度通知；5) 从单 Agent 到 Multi-Agent——不同阶段可能需要不同专业 Agent。在 Clarity 中通过 `agent/jumpy/` 模块实现 Plan 模式状态机追踪，每个子步骤有 pending/running/success/failed 四种状态。
