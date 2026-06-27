@@ -19,7 +19,7 @@
 
 ## Abstract
 
-Systems builder. 大三，甘肃农业大学大数据。独立设计并实现三个生产级 Rust 系统（合计 **62 crates / 26 万行 / 1,200+ 测试**），覆盖 P2P 同步协议、AI agent 运行时、开发者工具链。一项 RAG 学术研究（manuscript in progress）。AI 应用工程师（中级）。寻求 2027 后端/系统/AI 基础设施实习。
+Systems builder. 2004年生，大三在读（2027届），甘肃农业大学大数据。2025.11-2026.06 独立设计并交付三个生产级 Rust 系统（合计 44+ crates / 2,500+ 测试），覆盖 P2P 同步协议、AI agent 运行时、开发者工具链。一项 RAG 学术研究（manuscript in progress）。多项目部署于 Vercel + 日本 VPS。AI 应用工程师（中级）。寻求 2027 AI Agent / 后端 / 系统 实习。
 
 ---
 
@@ -27,17 +27,17 @@ Systems builder. 大三，甘肃农业大学大数据。独立设计并实现三
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    Clarity (25 crates)                   │
+│                    Clarity (22 crates)                   │
 │              本地优先 AI Agent 运行时                      │
-│    tokio · MCP · SQLite+向量 · 5种UI · ChaCha20加密       │
+│    tokio · MCP四传输 · SQLite+向量 · 6前端 · ChaCha20     │
 │    多模型调度 · 子代理编排 · Wire 通信协议                  │
 └────────────┬──────────────────────┬──────────────────────┘
              │                      │
     ┌────────▼────────┐    ┌───────▼────────┐
     │   devbase       │    │ syncthing-rust │
-    │  (12 crates)    │    │  (8 crates)    │
+    │  (12 crates)    │    │  (13 crates)   │
     │ 世界模型编译器    │    │ P2P 同步协议    │
-    │ Vault · Skill   │    │ BEP · TLS · NAT │
+    │ 71 MCP工具      │    │ BEP · TLS · NAT │
     │ Workflow · Sync │    │ Block-level Δ  │
     └────────┬────────┘    └───────┬────────┘
              │                      │
@@ -74,13 +74,13 @@ Systems builder. 大三，甘肃农业大学大数据。独立设计并实现三
 <tr>
 <td width="33%">
 <h4 align="center">
-  <img src="https://img.shields.io/badge/25_crates-152K_LOC-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/22_crates-150K_LOC-blue?style=flat-square">
   <br>🧠 Clarity
 </h4>
 <p align="center"><strong>Local-first AI agent runtime</strong></p>
 <p align="center">
   <img src="https://img.shields.io/badge/Rust-red?style=flat-square&logo=rust&logoColor=white">
-  <img src="https://img.shields.io/badge/tests-1243-brightgreen?style=flat-square">
+  <img src="https://img.shields.io/badge/tests-1889-brightgreen?style=flat-square">
   <img src="https://img.shields.io/badge/MCP-protocol-purple?style=flat-square">
 </p>
 <p align="center">
@@ -94,7 +94,7 @@ SQLite + BM25 + embedding memory
 </td>
 <td width="33%">
 <h4 align="center">
-  <img src="https://img.shields.io/badge/8_crates-59K_LOC-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/13_crates-58K_LOC-blue?style=flat-square">
   <br>🔄 syncthing-rust
 </h4>
 <p align="center"><strong>P2P file sync protocol</strong></p>
@@ -106,7 +106,7 @@ SQLite + BM25 + embedding memory
 <p align="center">
 BEP protocol · NAT traversal<br>
 STUN/UPnP/Relay · LAN+Global discovery<br>
-Block-level delta sync · REST API
+Block-level delta sync · 13MB binary · VPS deployed
 </p>
 <p align="center">
 <a href="https://github.com/juice094/syncthing-rust">🔗 Repo</a> · <a href="projects/syncthing-rust.md">📄 Details</a>
@@ -143,6 +143,34 @@ Embedding providers · Syncthing client
 | [personal-portal](https://github.com/juice094/personal-portal) | Vue 3 + Glassmorphism personal homepage portal |
 | [steamtools-accelerator](https://github.com/juice094/steamtools-accelerator) | HTTP/HTTPS reverse proxy & traffic hijacking in Rust |
 | [skills-DBA](https://github.com/juice094/skills-DBA) | `[Archived]` Skill database admin: local index, search, multi-source sync |
+
+---
+
+## 📁 Project Structure
+
+```
+juice094/
+├── README.md                          ← 你在这里
+├── resume/                            ← 简历目录
+│   ├── resume-general.md              # 海投通用版
+│   ├── zh.md                          # 技术深挖版
+│   ├── resume-keda-ai-agent.md        # 科大讯飞定向
+│   ├── resume-damo-academy.md         # 阿里达摩院定向
+│   ├── 周景潇-简历.pdf                # LaTeX编译 (104KB)
+│   ├── 周景潇-简历-达摩院-typst.pdf    # Typst编译 (170KB)
+│   └── templates/                     # LaTeX + Typst 模板
+├── 求职战备/                           ← AI面试备考资料库
+│   ├── 学习路线图/                     # 3项目分级学习路径
+│   ├── 项目面试攻略/                   # 15-20 Q&A + 话术
+│   ├── 通用八股/                       # Rust/AI-Agent/系统设计/后端综合
+│   ├── 面经/                           # 公司特点 + 薪资 + BQ
+│   └── SESSION-REPORT.md              # 本次会话交付清单
+├── projects/                          # 项目详情
+├── research/                          # RAG 学术研究
+├── scripts/                           # 定时推送等工具脚本
+├── .github/workflows/                 # CI/CD
+└── .agents/skills/                    # 面试模拟 + 简历审查 Agent
+```
 
 ---
 
@@ -211,8 +239,8 @@ Embedding providers · Syncthing client
 
 **Engineering**
 <br>
-<img src="https://img.shields.io/badge/62-crates-blue?style=flat-square">
-<img src="https://img.shields.io/badge/1200+-tests-green?style=flat-square">
+<img src="https://img.shields.io/badge/44+-crates-blue?style=flat-square">
+<img src="https://img.shields.io/badge/2500+-tests-green?style=flat-square">
 <img src="https://img.shields.io/badge/CI/CD-automation-yellow?style=flat-square">
 <img src="https://img.shields.io/badge/LaTeX-academic-red?style=flat-square">
 
@@ -239,13 +267,15 @@ Embedding providers · Syncthing client
 
 <div align="center">
 
-📚 Junior year, Big Data, Gansu Agricultural University
+📚 大三在读 · 2027届 · 甘肃农业大学大数据
 &nbsp;&nbsp;·&nbsp;&nbsp;
-📜 AI Application Engineer (Intermediate)
+📜 AI 应用工程师（中级）
 &nbsp;&nbsp;·&nbsp;&nbsp;
-📄 Research: output structure in retrieval-augmented generation
+📄 RAG 输出结构实证研究（论文撰写中）
 &nbsp;&nbsp;·&nbsp;&nbsp;
-🔍 Seeking 2027 backend / systems / AI infra internships
+🔍 寻求 2027 AI Agent / 后端 / 系统 实习
+&nbsp;&nbsp;·&nbsp;&nbsp;
+🌐 Vercel + 日本 VPS 部署
 
 </div>
 
@@ -253,10 +283,14 @@ Embedding providers · Syncthing client
 
 <div align="center">
 
-### 📋 Resume · [中文](resume/zh.md) · [English](resume/en.md)
+### 📋 Resume
+
+[通用版](resume/resume-general.md) · [技术深挖版](resume/zh.md) · [科大讯飞定向](resume/resume-keda-ai-agent.md) · [阿里达摩院定向](resume/resume-damo-academy.md) · [PDF](resume/周景潇-简历.pdf) · [达摩院PDF](resume/周景潇-简历-达摩院-typst.pdf)
+
+### 🛡️ 求职战备
+
+[📁 求职战备资料库](求职战备/) — 13 份文档：学习路线图 · 项目面试攻略 · 通用八股文 · 面经
 
 ### 📬 Connect · [GitHub](https://github.com/juice094)
-
-<sub>Holland CIE · Enneagram 7w8 · PDP Owl 🦉 · MBTI ENTJ · DISC DC</sub>
 
 </div>
