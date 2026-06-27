@@ -7,7 +7,7 @@
 )
 
 #set text(
-  font: ("Noto Serif SC", "Noto Sans SC", "SimSun", "Songti SC"),
+  font: ("Noto Serif SC", "Noto Sans SC", "SimSun", "Microsoft YaHei"),
   size: 10pt,
   lang: "zh",
 )
@@ -76,7 +76,7 @@
 
     甘肃农业大学 · 信息科学技术学院 · 数据科学与大数据技术 · 大三在读 · 预计 2027.06 \
     杭州（优先）· 北京 \
-    #link("mailto:2241470466@qq.com")[2241470466@qq.com] \| 13626566112 \
+    2241470466\@qq.com \| 13626566112 \
     #link("https://github.com/juice094")[github.com/juice094]
   ],
   // 右侧：达摩院 Logo — 高度限制为页眉区域
