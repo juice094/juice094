@@ -76,6 +76,6 @@ Rust · Tokio · Axum · SQLite · Tantivy · MCP · BEP · TLS 1.3 · NAT trave
 
 ## Connect
 
-- Email: 2241470466 at qq dot com
+- Email: [2241470466@qq.com](mailto:2241470466@qq.com)
 - GitHub: [github.com/juice094](https://github.com/juice094)
 - Resume: [resume/](resume/)
