@@ -12,3 +12,6 @@
 
 # Resume preview artifacts (keep PDFs)
 resume/*-preview-*.png
+
+# Local archive of old drafts and intermediate files
+.archive/
