@@ -1,0 +1,138 @@
+// 通用简历 Typst 模板 —— 深色科技风
+// 由 resume/build.py 从 YAML 数据渲染生成
+
+#set page(
+  paper: "a4",
+  margin: (top: 1.2cm, bottom: 1.0cm, left: 1.3cm, right: 1.3cm),
+)
+
+#set text(
+  font: ("Noto Serif SC", "Noto Sans SC", "SimSun", "Microsoft YaHei"),
+  size: 9pt,
+  lang: "zh",
+)
+
+#let primary = rgb("#1a1a2e")
+#let accent = rgb("#2563eb")
+#let gray = rgb("#666666")
+#let light-gray = rgb("#999999")
+#let border-color = rgb("#e0e0e0")
+
+#let section-title(title) = {
+  v(0.35em)
+  block(
+    stroke: (bottom: 0.8pt + border-color),
+    width: 100%,
+  )[
+    #set text(size: 11pt, weight: "bold", fill: primary)
+    #title
+  ]
+  v(0.15em)
+}
+
+#let dated-item(date, title, subtitle: none) = {
+  grid(
+    columns: (1fr, auto),
+    column-gutter: 0.5em,
+    row-gutter: 0.1em,
+    align(left)[
+      #set text(weight: "bold", fill: primary)
+      #title
+    ],
+    align(right)[
+      #set text(size: 9pt, fill: gray)
+      #date
+    ],
+  )
+  if subtitle != none {
+    text(size: 9pt, fill: gray)[#subtitle]
+  }
+}
+
+#let bullet-list(items) = {
+  for item in items {
+    [- #item]
+  }
+}
+
+#set list(spacing: 0.5em)
+
+// ===== 头部 =====
+#align(center)[
+  #text(size: 24pt, weight: "bold", fill: primary)[{{ profile.name }}]
+  #v(0.15em)
+  #text(size: 9pt, fill: gray)[
+    {{ education.school }} · {{ education.college }} · {{ education.major }} · 大三在读 · 预计 {{ education.period.split(' — ')[1] }} \
+    {{ profile.locations }} \
+    {{ profile.phone }} \| {{ profile.email | replace('@', '\\@') }} \| #link("{{ profile.github_url }}")[{{ profile.github }}]
+  ]
+  #v(0.3em)
+  #box(height: 1.2pt, width: 80%, fill: accent)
+  #v(0.25em)
+  #text(size: 10pt, fill: primary)[*{{ target.intent | default(profile.default_intent) }}*]
+]
+
+// --- 个人简介 ---
+#section-title[个人简介]
+
+{% if custom_summary %}{{ custom_summary | trim }}{% else %}{{ summary | trim }}{% endif %}
+
+// --- 技术能力 ---
+#section-title[技术能力]
+
+#set text(size: 9.5pt)
+
+我主要用 *Rust* 写系统级软件，也常用 *Python* 做数据分析、测试脚本和实验验证。
+
+在项目中实际用过这些技术：
+{% for cat in skills %}
+- *{{ cat.category }}*：{{ cat['items'] | join('、') }}
+{%- endfor %}
+
+// --- 项目经历 ---
+#section-title[项目经历]
+
+#set text(size: 9.5pt)
+
+{% for proj_name in project_order %}
+{%- set proj = projects | selectattr('name', 'equalto', proj_name) | first %}
+{%- set filtered_bullets = proj.bullets | filter_by_tags(emphasis_tags | default([])) | limit(max_bullets_per_project | default(10)) %}
+// {{ proj.name }}
+#dated-item("{{ proj.period }}", [{{ proj.name }} — {{ proj.description }}], subtitle: [{{ proj.metrics }} · #link("{{ proj.repo }}")[{{ proj.repo | replace('https://', '') }}]])
+#v(0.08em)
+#bullet-list((
+  {% for bullet in filtered_bullets %}
+  [{{ bullet.text }}]{% if not loop.last %},{% endif %}
+  {%- endfor %}
+))
+
+#v(0.12em)
+
+{% endfor %}
+
+{% if show_research %}
+// --- 研究经历 ---
+#section-title[研究经历]
+
+#set text(size: 9.5pt)
+
+{% for r in research %}
+#dated-item("{{ r.period }}", [{{ r.title }}], subtitle: [#link("{{ r.repo }}")[{{ r.repo | replace('https://', '') }}]])
+#v(0.08em)
+{{ r.description }}
+{% endfor %}
+{% endif %}
+
+{% if awards or show_other %}
+// --- 其他 ---
+#section-title[其他]
+
+#set text(size: 9.5pt)
+
+{% for award in awards %}
+- {{ award }}
+{%- endfor %}
+{% for item in other %}
+- {{ item }}
+{%- endfor %}
+{% endif %}

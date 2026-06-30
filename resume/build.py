@@ -110,16 +110,44 @@ def build_all():
         render_resume(config_name)
 
 
-def build_pdf(md_path: Path) -> Path:
-    """使用 pandoc + typst 将 Markdown 转为 PDF。"""
-    pdf_path = md_path.with_suffix(".pdf")
-    cmd = [
-        "pandoc",
-        str(md_path),
-        "-o",
-        str(pdf_path),
-        "--pdf-engine=typst",
-    ]
+def render_typst(config_name: str) -> Path:
+    """渲染指定配置的 Typst 源文件。"""
+    data = load_yaml(DATA_DIR / "resume.yaml")
+    config = load_yaml(CONFIG_DIR / f"{config_name}.yaml")
+
+    env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+    env.filters["filter_by_tags"] = filter_by_tags
+    env.filters["limit"] = limit
+
+    template = env.get_template("resume.typ.j2")
+
+    context = {**data, **config}
+
+    skill_categories = config.get("skill_categories", "all")
+    if skill_categories != "all":
+        context["skills"] = [
+            s for s in data["skills"] if s["category"] in skill_categories
+        ]
+
+    project_order = config.get("project_order", [p["name"] for p in data["projects"]])
+    context["project_order"] = project_order
+
+    typst_src = template.render(context)
+    typst_src = clean_markdown(typst_src)
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_typ = OUTPUT_DIR / f"{config_name}.typ"
+    with open(output_typ, "w", encoding="utf-8") as f:
+        f.write(typst_src)
+
+    print(f"Generated: {output_typ}")
+    return output_typ
+
+
+def build_pdf(config_name: str, typ_path: Path) -> Path:
+    """使用 typst 编译 PDF。"""
+    pdf_path = OUTPUT_DIR / f"{config_name}.pdf"
+    cmd = ["typst", "compile", str(typ_path), str(pdf_path)]
     subprocess.run(cmd, check=True)
     print(f"Generated: {pdf_path}")
     return pdf_path
@@ -129,19 +157,24 @@ def main():
     parser = argparse.ArgumentParser(description="Build resumes from YAML data")
     parser.add_argument("--config", help="Config name, e.g. general or damo")
     parser.add_argument("--all", action="store_true", help="Build all configs")
-    parser.add_argument("--pdf", action="store_true", help="Also generate PDF via pandoc+typst")
+    parser.add_argument("--pdf", action="store_true", help="Also compile PDF via typst")
+    parser.add_argument("--md", action="store_true", help="Also generate Markdown")
     args = parser.parse_args()
 
     if args.all:
         for config_file in sorted(CONFIG_DIR.glob("*.yaml")):
             config_name = config_file.stem
-            md = render_resume(config_name)
+            typ = render_typst(config_name)
+            if args.md:
+                render_resume(config_name)
             if args.pdf:
-                build_pdf(md)
+                build_pdf(config_name, typ)
     elif args.config:
-        md = render_resume(args.config)
+        typ = render_typst(args.config)
+        if args.md:
+            render_resume(args.config)
         if args.pdf:
-            build_pdf(md)
+            build_pdf(args.config, typ)
     else:
         parser.print_help()
         sys.exit(1)
