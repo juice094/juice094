@@ -1,38 +1,53 @@
-# Zhou Jingxiao
+# Hi, I'm 周景潇 (Zhou Jingxiao)
 
-> Building production-grade systems in **Rust** — AI Agent runtimes, P2P protocols, and developer tooling.
+I'm an undergraduate student building production-grade systems in **Rust**.
 
-<p>
-  <img src="https://img.shields.io/badge/Rust-CE422B?style=flat-square&logo=rust&logoColor=white">
-  <img src="https://img.shields.io/badge/AI_Agent_Systems-4B32C3?style=flat-square&logo=openai&logoColor=white">
-  <img src="https://img.shields.io/badge/Distributed_Systems-FF6B35?style=flat-square&logo=databricks&logoColor=white">
-</p>
-
-I'm an undergraduate student at Gansu Agricultural University, majoring in Data Science and Big Data Technology. Over the past year I independently designed and delivered three system-level Rust projects: a local-first AI Agent runtime, a wire-compatible P2P file-sync reimplementation, and a developer workspace compiler.
-
-I care about **local-first architecture**, **zero external dependencies**, and **single-binary distribution**. Production code aims for zero unwrap/expect/panic.
+Currently independent-maintaining 3 system-level projects — an AI Agent runtime, a P2P file-sync protocol stack, and a developer workspace compiler. 40+ workspace crates, 2,500+ tests, zero `unwrap`/`expect`/`panic` in production code.
 
 ---
 
-## Projects
+## About
 
-### 🧠 [Clarity](https://github.com/juice094/clarity) · [Details](projects/clarity.md)
+I believe good infrastructure should be **local-first**, **zero-dependency**, and **single-binary distributable**.
 
-Local-first AI Agent runtime with persistent memory across devices. ReAct/Plan execution loop, MCP protocol, BM25 + vector hybrid retrieval, shared Agent kernel across desktop / terminal / headless / mobile FFI.
+Most of my work lives in Rust: async services, embedded storage, network protocols, and cross-platform UIs. I care about compile-time safety, minimal deployment surfaces, and systems that keep working when the network doesn't.
+
+---
+
+## Currently Building
+
+### [Clarity](https://github.com/juice094/clarity) — Local-first AI Agent runtime
+
+A runtime that lets the same AI assistant keep its personality, memory, and social context across your phone, laptop, and server — without uploading private data to the cloud.
+
+- ReAct + Plan dual-mode execution loop
+- MCP protocol with stdio / SSE / WebSocket transports
+- SQLite-based hybrid memory retrieval with custom vector-similarity UDF
+- Shared Agent kernel across TUI, egui GUI, headless, and mobile FFI
 
 `23 crates · 152K LOC · 1,243 tests`
 
-### 🔄 [syncthing-rust](https://github.com/juice094/syncthing-rust) · [Details](projects/syncthing-rust.md)
+### [syncthing-rust](https://github.com/juice094/syncthing-rust) — P2P file sync, no cloud needed
 
-Rust reimplementation of the Syncthing BEP protocol, wire-compatible with the official Go client. TLS 1.3, multi-path NAT traversal, block-level delta sync.
+A Rust reimplementation of the Syncthing BEP protocol, wire-compatible with the official Go client.
 
-`8 crates · 5 binaries · 59K LOC`
+- TLS 1.3 + rustls transport
+- Multi-path NAT traversal: UDP broadcast, STUN, UPnP, Relay
+- Block-level delta sync and version archiving
+- Deployed on a VPS, syncing with a Windows desktop over Tailscale
 
-### 🗺️ [devbase](https://github.com/juice094/devbase) · [Details](projects/devbase.md)
+`8 lib crates + 5 binaries · 59K LOC`
 
-Developer workspace compiler that turns repos, notes, and YAML workflows into structured context for AI. tree-sitter parsing, Tantivy search, SQLite embedding store, declarative workflow engine.
+### [devbase](https://github.com/juice094/devbase) — Developer workspace compiler
 
-`12 crates · 71 MCP tools · 56K LOC`
+Turns code repos, Markdown notes, and YAML workflows into structured context that AI agents can reason over.
+
+- tree-sitter parsing for multi-language symbol extraction
+- Tantivy + SQLite embedding store, no external vector database
+- YAML DAG workflow engine with skills, sub-workflows, parallelism, and conditionals
+- Exposes 71 stdio tools via MCP protocol
+
+`12 crates + main crate · 56K LOC`
 
 ### More
 
@@ -56,4 +71,8 @@ Rust · Tokio · Axum · SQLite · Tantivy · MCP · BEP · TLS 1.3 · NAT trave
 
 ---
 
-📄 [Resume](resume/) · 🔬 [Research](research/) · 📬 2241470466@qq.com · 🐙 [github.com/juice094](https://github.com/juice094)
+## Connect
+
+- Email: [2241470466@qq.com](mailto:2241470466@qq.com)
+- GitHub: [github.com/juice094](https://github.com/juice094)
+- Resume: [resume/](resume/)
