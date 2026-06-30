@@ -1,0 +1,118 @@
+# 简历单一数据源
+# 修改此处后，运行 python resume/build.py 可重新生成所有定向简历
+
+profile:
+  name: 周景潇
+  name_en: Zhou Jingxiao
+  title: 数据科学与大数据技术 · 大三在读 · 本科 2027 届
+  locations: 上海 / 北京 / 深圳 / 杭州 / 成都
+  phone: "13626566112"
+  email: "2241470466@qq.com"
+  github: "juice094"
+  github_url: "https://github.com/juice094"
+  default_intent: "AI Agent 开发 / 后端系统开发 / 智能体平台研发"
+
+education:
+  school: 甘肃农业大学
+  college: 信息科学技术学院
+  major: 数据科学与大数据技术
+  degree: 工学学士
+  period: 2023.09 — 2027.06
+  gpa: "83"
+  core_gpa: "86"
+  rank: 专业前 10%
+  courses: 数据结构与算法、操作系统、计算机网络、数据库原理、分布式系统、机器学习
+
+summary: |
+  独立用 Rust 从零构建过三个系统级项目：一个跨设备保持一致的本地 AI Agent、
+  一个无需云盘的 P2P 文件同步工具、一个把代码和笔记编译成 AI 可理解上下文的开发者知识库。
+  熟悉异步服务、嵌入式存储、网络协议和跨平台 UI，工程上追求零警告、零 panic、可单二进制分发。
+
+skills:
+  - category: 异步与网络
+    items: [Tokio, Axum, Tower, reqwest, WebSocket, rustls]
+  - category: 存储与检索
+    items: [SQLite, rusqlite, Tantivy, BM25, embedding 向量搜索]
+  - category: AI Agent
+    items: [ReAct / Plan 双模式, MCP 协议, Multi-Agent 编排, RAG 检索增强]
+  - category: 分布式与 P2P
+    items: [BEP 协议, STUN, UPnP, Relay, NAT 穿透]
+  - category: 跨平台 UI
+    items: [egui, ratatui, UniFFI]
+  - category: 安全
+    items: [ChaCha20-Poly1305, TLS 1.3, 自签名设备证书]
+  - category: 工程化
+    items: [Cargo Workspace, GitHub Actions, Clippy, tracing, criterion]
+
+projects:
+  - name: Clarity
+    repo: "https://github.com/juice094/clarity"
+    period: 2026.04 — 至今
+    metrics: "23 workspace crate · 152K LOC · 1,243 tests · 零 panic"
+    description: 让 AI 助手跨设备保持一致人格的本地 Agent 系统
+    bullets:
+      - text: 本地优先的 AI Agent 运行时：ReAct + Plan 双模式执行，步骤遗漏率从约 40% 降到接近零。
+        tags: [agent, planning]
+      - text: MCP 工具协议三传输实现（stdio / SSE / WebSocket），LLM 可调本地文件、搜索、shell 等能力。
+        tags: [agent, mcp, tools]
+      - text: SQLite 单文件混合记忆检索：手写向量相似度 UDF + BM25 关键词检索，零外部向量数据库依赖。
+        tags: [agent, storage, retrieval]
+      - text: 桌面 GUI（egui）、终端 UI（ratatui）、后台服务、移动端 FFI（UniFFI）共享同一 Agent 内核。
+        tags: [agent, ui, engineering]
+
+  - name: syncthing-rust
+    repo: "https://github.com/juice094/syncthing-rust"
+    period: 2025.11 — 至今
+    metrics: "8 library crate + 5 命令二进制 · 59K LOC · ~12 MB 单二进制"
+    description: 无需云盘的 P2P 文件同步工具
+    bullets:
+      - text: 从零实现 Syncthing BEP 协议，protobuf 编解码，wire_compat 集成测试验证与 Go 版线路兼容。
+        tags: [p2p, network, protocol, engineering]
+      - text: 多路径 NAT 穿透：UDP 本地广播、全球发现、STUN、UPnP、Relay 中继回退。
+        tags: [p2p, network, nat]
+      - text: 块级文件同步 + Windows 句柄冲突退避 + 三路文本合并 + Simple/Staggered 版本归档。
+        tags: [p2p, storage, distributed, engineering]
+
+  - name: devbase
+    repo: "https://github.com/juice094/devbase"
+    period: 2026.01 — 至今
+    metrics: "12 workspace crate + 主 crate · 56K LOC · 71 MCP 工具"
+    description: 把代码和笔记编译成 AI 能理解的上下文
+    bullets:
+      - text: 通过 MCP 协议暴露 71 个 stdio 工具，覆盖代码符号检索、Git 分析、笔记搜索、YAML 工作流执行。
+        tags: [agent, mcp, tools, engineering]
+      - text: 零云端依赖语义检索：Tantivy 全文/符号索引 + SQLite BLOB 存 embedding + 手写 cosine_similarity UDF。
+        tags: [agent, storage, retrieval, engineering]
+      - text: YAML DAG 工作流引擎：支持 Skill、子工作流、并行、条件判断、循环 5 种步骤类型。
+        tags: [agent, engineering]
+
+research:
+  - title: 检索增强生成中输出结构的实证研究
+    repo: "https://github.com/juice094/acr-select"
+    period: 2026.03 — 至今
+    description: 围绕 RAG 系统中“输出格式如何影响内容质量”设计受控实验：40 个实验条件、3000+ 样本、跨 4 种模型架构验证。论文撰写中。
+
+awards:
+  - AI 应用工程师（中级）— 工业和信息化部认证
+  - 日语专业四级（CJT-4）· 大学英语四级（CET-4）
+
+other:
+  - 到岗时间：2026.07；可实习 3–6 个月，每周 5 天
+  - 公网可访问：Clarity Web 前端（Vercel）、syncthing-rust P2P 节点（日本 VPS）
+
+# 元数据：用于定向筛选
+available_tags:
+  - agent
+  - mcp
+  - tools
+  - planning
+  - storage
+  - retrieval
+  - network
+  - p2p
+  - nat
+  - protocol
+  - distributed
+  - ui
+  - security
+  - engineering

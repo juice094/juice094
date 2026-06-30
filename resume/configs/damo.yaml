@@ -1,0 +1,35 @@
+# 阿里达摩院定向简历配置
+name: damo-academy
+target:
+  company: 阿里巴巴达摩院
+  intent: AI Agent 基础设施 / 大模型系统工程
+  city: 杭州（优先）· 北京
+
+# 强调与达摩院相关的技术点
+emphasis_tags:
+  - agent
+  - mcp
+  - planning
+  - retrieval
+  - distributed
+  - engineering
+
+# 项目展示顺序：把 AI Agent 相关放前面
+project_order: [Clarity, devbase, syncthing-rust]
+
+# 每个项目显示的 bullet 数量
+max_bullets_per_project: 4
+
+# 是否显示研究经历
+show_research: true
+
+# 是否显示其他信息
+show_other: true
+
+# 技术能力展示：默认展示全部
+skill_categories: all
+
+# 定向简介覆盖（可选）
+custom_summary: |
+  独立用 Rust 从零构建 AI Agent 运行时、P2P 文件同步协议栈与开发者工作空间编译器。
+  专注于本地优先架构、零外部依赖部署与生产级 Rust 工程实践。

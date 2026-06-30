@@ -1,0 +1,61 @@
+# {{ profile.name }}
+
+{% if target.company %}{{ target.company }} · {% endif %}{{ target.intent | default(profile.default_intent) }}
+
+---
+
+## 教育背景
+
+**{{ education.school }}** · {{ education.major }} · {{ education.degree }} · {{ education.period }}
+{{ education.college }} · 均分 {{ education.gpa }} / 核心课 {{ education.core_gpa }} · {{ education.rank }}
+
+主修课程：{{ education.courses }}
+
+## 个人简介
+
+{% if custom_summary %}{{ custom_summary | trim }}{% else %}{{ summary | trim }}{% endif %}
+
+## 技术能力
+
+我主要用 *Rust* 写系统级软件，也常用 *Python* 做数据分析、测试脚本和实验验证。
+{% for cat in skills %}
+- *{{ cat.category }}*：{{ cat['items'] | join('、') }}
+{%- endfor %}
+
+## 项目经历
+{% for proj_name in project_order %}
+{%- set proj = projects | selectattr('name', 'equalto', proj_name) | first %}
+
+### {{ proj.name }} — {{ proj.description }}
+{{ proj.repo }} · {{ proj.period }}
+
+{{ proj.metrics }}
+{% for bullet in proj.bullets | filter_by_tags(emphasis_tags | default([])) | limit(max_bullets_per_project | default(10)) %}
+- {{ bullet.text }}
+{%- endfor -%}
+{% endfor %}
+{% if show_research %}
+
+## 研究经历
+
+{% for r in research %}**{{ r.title }}** · {{ r.period }} · {{ r.repo }}
+
+{{ r.description }}
+{% endfor %}
+{% endif %}
+{% if awards %}
+
+## 奖项与认证
+
+{% for award in awards %}
+- {{ award }}
+{%- endfor %}
+{% endif %}
+{% if show_other %}
+
+## 其他
+
+{% for item in other %}
+- {{ item }}
+{%- endfor %}
+{% endif %}

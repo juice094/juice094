@@ -1,0 +1,16 @@
+# 通用版简历配置
+name: general
+target:
+  intent: AI Agent 开发 / 后端系统开发 / 智能体平台研发
+
+# 项目展示顺序
+project_order: [Clarity, syncthing-rust, devbase]
+
+# 是否显示研究经历
+show_research: true
+
+# 是否显示其他信息
+show_other: true
+
+# 技术能力展示：默认展示全部
+skill_categories: all
