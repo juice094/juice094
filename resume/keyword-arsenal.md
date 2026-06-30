@@ -12,8 +12,8 @@
 | 项目 | 定位 | 代码规模 | 核心架构 | 最有区分度的技术点 |
 |---|---|---|---|---|
 | **clarity** | Rust 原生本地优先个人 AI 运行时 | 22 crates, ~150K 行 | Contract-First 分层 + SPMC 事件总线 + 多前端共享内核 | Candle GGUF 本地推理、BM25+向量混合记忆、UniFFI 移动端 FFI |
-| **syncthing-rust** | Syncthing BEP 协议 Rust 重写，P2P 文件同步守护进程 | 13 crates, ~58K 行 | Workspace 分层 + Trait-Based 抽象 + 事件驱动 | BEP 协议互操作、rustls + ed25519 设备证书、预测性健康检查 |
-| **devbase** | 本地优先开发者工作空间"世界模型编译器" | 12 workspace crates + 主 crate | 三层架构 + 依赖注入 + MCP Contract-First | tree-sitter 多语言解析、SQLite + Tantivy 混合检索、71 个 MCP 工具 |
+| **syncthing-rust** | Syncthing BEP 协议 Rust 重写，P2P 文件同步守护进程 | 9 lib + 5 binary crate，约 5.3 万行 | Workspace 分层 + Trait-Based 抽象 + 事件驱动 | BEP 协议互操作、rustls + 自签名设备证书、预测性健康检查 |
+| **devbase** | 本地优先开发者工作空间"世界模型编译器" | 12 workspace crates + 主 crate | 三层架构 + 依赖注入 + MCP Contract-First | tree-sitter 多语言解析、SQLite + Tantivy 混合检索、81 个 MCP 工具 |
 
 ---
 
@@ -28,7 +28,7 @@ Rust 2024 / Rust 2021 · tokio · async/await · Cargo Workspace · Feature Flag
 SQLite (WAL) · rusqlite · sled · Tantivy · BM25 · 向量搜索 · BLOB 序列化 · R2D2 · Connection Pool
 
 ### 网络 / 协议
-Axum · tower-http · WebSocket · SSE · REST API · JSON-RPC · MCP (Model Context Protocol) · BEP 协议 · TLS 1.3 / rustls · ed25519 · STUN · UPnP · Relay · NAT 穿透 · P2P 文件同步
+Axum · tower-http · WebSocket · SSE · REST API · JSON-RPC · MCP (Model Context Protocol) · BEP 协议 · TLS 1.3 / rustls · 自签名设备证书 · STUN · UPnP · Relay · NAT 穿透 · P2P 文件同步
 
 ### AI / LLM / Agent
 Candle · GGUF · ReAct / Plan Agent 循环 · Approval 四层机制 · Multi-Agent 调度 · 子代理并行 · RAG · 混合检索 (BM25 + Vector) · 四级压缩归档 · Embedding · Ollama
@@ -37,7 +37,7 @@ Candle · GGUF · ReAct / Plan Agent 循环 · Approval 四层机制 · Multi-Ag
 egui / eframe · ratatui · crossterm · Slint · TUI · Win32 API · 系统托盘 · UniFFI · 移动端 FFI
 
 ### 安全 / 加密
-ChaCha20-Poly1305 · rustls · ed25519-dalek · 设备证书派生 · 本地 Secret 加密 · OAuth Device Flow
+ChaCha20-Poly1305 · rustls · rcgen · 自签名设备证书 · 本地 Secret 加密 · OAuth Device Flow
 
 ### 代码解析 / 工程智能
 tree-sitter · 多语言符号提取 · 调用图 · PARA / Vault · Wikilink · BFS 图遍历 · YAML DAG · Workflow Engine
@@ -71,14 +71,14 @@ GitHub Actions · CI/CD 矩阵 · cargo-deny · cargo-audit · Clippy 零 warnin
 5. **建立零 warning、零失败工程基线**：推动 `cargo clippy -D warnings` 全绿，维护 1,554+ lib / 275 bin / 34 doc / 26 集成测试全通过；引入 Pretext 文字测量使 1000 条消息渲染高度偏差降至 1.45%。
 
 ### syncthing-rust（P2P / 分布式 / 网络协议）
-1. **独立设计并实现 13-crate Rust Workspace 架构**，将 BEP 协议、网络传输、同步状态机、嵌入式存储、REST API 按职责分层，通过 `syncthing-core` trait 层实现库间解耦，支撑 58,848 行代码的可持续演进。
-2. **完成 BEP over TLS 协议栈的 Rust 实现**，基于 prost + rustls + ed25519-dalek 实现与 Go Syncthing 的线路兼容，配套 `wire_compat` 集成测试验证跨语言互操作。
+1. **独立设计并实现 9 library + 5 command binary 的 Rust Workspace 架构**，将 BEP 协议、网络传输、同步状态机、嵌入式存储、REST API 按职责分层，通过 `syncthing-core` trait 层实现库间解耦，支撑约 5.3 万行 Rust 代码的可持续演进。
+2. **完成 BEP over TLS 协议栈的 Rust 实现**，基于 prost + rustls + 自签名设备证书实现与 Go Syncthing 的线路兼容，配套 `wire_compat` 集成测试验证跨语言互操作。
 3. **构建高可靠文件同步链路**：针对 Windows 句柄共享冲突实现指数退避重命名回退，设计三路文本合并与 Simple/Staggered 版本归档策略，解决双向同步中的并发冲突与数据丢失风险。
 4. **实现预测性健康检查与自适应并发机制**：通过事件流评估失败率、watcher 丢事件和状态翻转趋势，由 FolderOrchestrator 与 Puller 动态调整扫描/拉取并发，提升高负载下的稳定性。
-5. **主导生产级工程实践**：`cargo test --workspace` 基线 392 passed / 0 failed，Clippy 0 warnings，release 单二进制约 13 MB，并建立 72h 耐久压测与多云 CI/CD 矩阵。
+5. **主导生产级工程实践**：`cargo test --workspace` 基线 413 passed / 6 ignored / 0 failed，Clippy 0 warnings，release 单二进制约 16 MB，并设计 72h 耐久压测脚本与多云 CI/CD 矩阵。
 
 ### devbase（DevTools / AI 上下文工程 / 知识管理）
-1. **主导设计并实现本地优先的开发者工作空间"世界模型编译器"**，通过 tree-sitter + SQLite + Tantivy 将代码库、PARA 笔记、Skill 与工作流编译为 AI 可推理的结构化上下文，并以 MCP 协议暴露 71 个 stdio 工具。
+1. **主导设计并实现本地优先的开发者工作空间"世界模型编译器"**，通过 tree-sitter + SQLite + Tantivy 将代码库、PARA 笔记、Skill 与工作流编译为 AI 可推理的结构化上下文，并以 MCP 协议暴露 81 个 stdio 工具。
 2. **在零云端依赖约束下实现语义检索能力**：设计 SQLite BLOB + 自定义 `cosine_similarity` UDF 的向量搜索方案，配合 Candle/Ollama 本地 embedding 后端，使默认构建保持零 ML 运行时依赖。
 3. **建立项目级架构治理体系**：定义并落地 G1–G7/RF-1–RF-7 架构红线，通过 `scripts/invariant-checks/run-checks.ps1` 在 CI 强制依赖注入、测试密封性、零生产 panic 等规则，实现生产代码 `unwrap/expect/panic` 数量为 0。
 4. **设计并实现 12 crate 的 Cargo Workspace 拆分策略**，以 `devbase-core-types` 为无耦合根节点，严格控制 crate 间依赖方向，避免子 crate 反向耦合主库。
@@ -92,7 +92,7 @@ GitHub Actions · CI/CD 矩阵 · cargo-deny · cargo-audit · Clippy 零 warnin
 |---|---|---|
 | Rust 后端 / 系统开发 | tokio · async/await · Axum · REST API · SQLite · CI/CD · 零 warning 基线 | syncthing-rust / devbase |
 | AI Infra / LLM 平台 | Candle · GGUF · MCP · ReAct/Plan · RAG · BM25+向量 · Multi-Agent · Provider Failover | clarity |
-| DevTools / 开发者体验 | MCP · tree-sitter · Tantivy · YAML DAG · 世界模型编译器 · 71 个 MCP 工具 | devbase |
+| DevTools / 开发者体验 | MCP · tree-sitter · Tantivy · YAML DAG · 世界模型编译器 · 81 个 MCP 工具 | devbase |
 | 分布式 / P2P / 网络协议 | BEP · rustls · ed25519 · NAT 穿透 · 预测性健康检查 · 自适应并发 | syncthing-rust |
 | 全栈 / 多前端 | egui · ratatui · Axum · WebSocket · SPMC · 多前端共享内核 | clarity |
 
