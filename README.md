@@ -65,9 +65,12 @@ Rust · Tokio · Axum · SQLite · Tantivy · MCP · BEP · TLS 1.3 · NAT trave
 
 ---
 
-## GitHub Stats
+## By the numbers
 
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=juice094&layout=compact&theme=dark&hide_border=true">
+- **40+** workspace crates across personal projects
+- **2,500+** tests passing, **0** production `unwrap`/`expect`/`panic`
+- **3** system-level Rust projects shipped independently
+- **1** empirical study on RAG output structure in progress
 
 ---
 
