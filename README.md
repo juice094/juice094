@@ -53,7 +53,7 @@ Turns code repos, Markdown notes, and YAML workflows into structured context tha
 
 | Project | Description |
 |:---|:---|
-| [acr-select](https://github.com/juice094/acr-select) | Empirical study on output structure in RAG systems |
+| [steamtools-accelerator](https://github.com/juice094/steamtools-accelerator) | SteamTools HTTP/HTTPS proxy accelerator with Windows kernel-level DNS interception |
 | [student-era](https://github.com/juice094/student-era) | Course projects archive — Vue, PyTorch, Hadoop, GIS |
 | [pretext-rust](https://github.com/juice094/pretext-rust) | Rust port of Pretext text measurement library |
 
