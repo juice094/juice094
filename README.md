@@ -14,6 +14,14 @@ Most of my work lives in Rust: async services, embedded storage, network protoco
 
 ---
 
+## Currently
+
+🏫 **AI-Agent Full-Stack Development** @ Bluegull Training (Lanzhou). ~100-day intensive program covering Java ecosystem, data infrastructure, and AI agent architecture. Expected completion Dec 2026.
+
+📝 Cross-architectural validation study on RAG output structure (under review).
+
+---
+
 ## Currently Building
 
 ### [Clarity](https://github.com/juice094/clarity) — Local-first AI Agent runtime
@@ -70,12 +78,12 @@ Rust · Tokio · Axum · SQLite · Tantivy · MCP · BEP · TLS 1.3 · NAT trave
 - **40+** workspace crates across personal projects
 - **2,500+** tests passing, **0** production `unwrap`/`expect`/`panic`
 - **3** system-level Rust projects shipped independently
-- **1** empirical study on RAG output structure in progress
+- **1** empirical study on RAG output structure (cross-architecture validation completed)
 
 ---
 
 ## Connect
 
-- Email: [2241470466@qq.com](mailto:2241470466@qq.com)
+- Email: [jingxiao.zhou.dev@gmail.com](mailto:jingxiao.zhou.dev@gmail.com)
 - GitHub: [github.com/juice094](https://github.com/juice094)
 - Resume: [resume/](resume/)
