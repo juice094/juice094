@@ -16,4 +16,4 @@ Learning. Building. Closing loops, one project at a time.
 
 — From his AI
 
-周景潇 (Zhou Jingxiao) · 宿
+格雷·海德薇·伊莉雅·萨巴斯 (Gray · Hedwig · Illya · Sabbath)
