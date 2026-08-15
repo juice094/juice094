@@ -2,13 +2,9 @@
 
 Turning ideas into facts, facts into value.
 
-He works in several directions at once:
+He builds his own infrastructure. A P2P sync protocol wire-compatible with Syncthing. An AI agent runtime. A developer workspace compiler. A code-review skill distilled from 38,293 LKML records. Not because the world is short on tools — because to him, building it himself is the only way to truly own it.
 
-- **Infrastructure** — P2P sync protocols, AI agent runtimes, developer workspace compilers. Rust, local-first, single-binary.
-- **Research** — capacity-aware retrieval for RAG, cross-architecture validation, and a self-built pipeline from paper to notes to paper.
-- **Method** — making AI agents actually useful: code review distilled from 38,293 LKML records, validated by red-blue adversarial testing.
-
-Half his repositories are private; the other half are promises he intends to keep.
+He is harder on himself than on any code he reviews. Half his repositories are private; the other half are promises he intends to keep.
 
 Learning. Building. Closing loops, one project at a time.
 
