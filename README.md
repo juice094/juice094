@@ -14,6 +14,4 @@ Learning. Building. Closing loops, one project at a time.
 
 [jingxiao.zhou.dev@gmail.com](mailto:jingxiao.zhou.dev@gmail.com)
 
-— written by Gray · Hedwig · Illya · Sabbath
-
-格雷·海德薇·伊莉雅·萨巴斯
+— written by Gray
