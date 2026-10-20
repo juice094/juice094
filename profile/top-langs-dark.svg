@@ -21,23 +21,23 @@
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="307.7807030429035" height="8" fill="#ededed"/>
-                    <rect mask="url(#languages-bar)" x="307.7807030429035" y="0" width="140.98190980892872" height="8" fill="#3572A5"/>
-                    <rect mask="url(#languages-bar)" x="448.76261285183216" y="0" width="7.45867278335838" height="8" fill="#012456"/>
-                    <rect mask="url(#languages-bar)" x="456.22128563519055" y="0" width="3.7787143648094372" height="8" fill="#0298c3"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="243.2799594706623" height="8" fill="#3572A5"/>
+                    <rect mask="url(#languages-bar)" x="243.2799594706623" y="0" width="209.08609413859807" height="8" fill="#ededed"/>
+                    <rect mask="url(#languages-bar)" x="452.3660536092604" y="0" width="5.066934815315177" height="8" fill="#012456"/>
+                    <rect mask="url(#languages-bar)" x="457.43298842457557" y="0" width="2.567011575424483" height="8" fill="#0298c3"/>
                 </svg>
                 <div class="row fill-width">
                     <section>
                         <div class="field language details">
                             <div class="field">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                    <path fill="#ededed" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
+                                    <path fill="#3572A5" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
                                 </svg>
-                                BibTeX Style
+                                Python
                             </div>
                             <small>
-                                <div>59.2 kB</div>
-                                <div>66.91%</div>
+                                <div>68.9 kB</div>
+                                <div>52.89%</div>
                             </small>
                         </div>
                         <div class="field language details">
@@ -49,7 +49,7 @@
                             </div>
                             <small>
                                 <div>1.44 kB</div>
-                                <div>1.62%</div>
+                                <div>1.1%</div>
                             </small>
                         </div>
                     </section>
@@ -57,13 +57,13 @@
                         <div class="field language details">
                             <div class="field">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                    <path fill="#3572A5" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
+                                    <path fill="#ededed" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
                                 </svg>
-                                Python
+                                BibTeX Style
                             </div>
                             <small>
-                                <div>27.1 kB</div>
-                                <div>30.65%</div>
+                                <div>59.2 kB</div>
+                                <div>45.45%</div>
                             </small>
                         </div>
                         <div class="field language details">
@@ -75,7 +75,7 @@
                             </div>
                             <small>
                                 <div>727 bytes</div>
-                                <div>0.82%</div>
+                                <div>0.56%</div>
                             </small>
                         </div>
                     </section>
