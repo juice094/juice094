@@ -13,8 +13,8 @@
 # Resume preview artifacts (keep PDFs)
 resume/*-preview-*.png
 
-# Local archive of old drafts and intermediate files
-.archive/
-
 # Generated resume outputs (rebuild with python resume/build.py)
 resume/output/
+
+# Packed archives (do not commit zips)
+*.zip

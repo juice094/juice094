@@ -6,6 +6,28 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-20
+
+### Added
+- `AGENTS.md` 新增「仓库定性」章节：策展型作品集定位、T2 成熟标准、分区生命周期表，作为后续改动的裁判依据。
+- 新增 `archive/README.md`，显式声明存档面为 Archived、不维护。
+- 新增 `projects/README.md`、`research/README.md` 作为展示面索引，README 底部徽章改为指向具体文件。
+
+### Changed
+- `README.md` 重构：标题与正文不再出现真名；删除技术栈罗列，改为量化指标（crates / LOC / 项目数）；新增「精选项目」文字块；四行两列表格改为单列 + `<details>` 折叠，仅默认展开贡献日历；底部导航改为徽章按钮。
+- 联系方式统一为 `humiao2007@gmail.com`，Résumé 徽章指向 `resume/en.md`。
+- `archive/` 成为唯一归档目录，`.archive/` 内容迁入并删除，`.gitignore` 移除对应规则。
+- `resume/` 顶层的已完成历史版本（`zh-v4` 系列、达摩院与通用定向的命名 PDF、`周景潇-求职综合展示-v4.pptx`、`给老师.md`）移入 `archive/resume/`，顶层文件数 75 → 16。`zh-keda-ai-agent.md/.pdf` 保留原位——它是 `build-resume.ps1` 的唯一源文件，不是历史版本。
+- `profile/` 中未被 README 引用的 `calendar-*`、`stats-*` 移入 `archive/profile/`。
+
+### Removed
+- 删除根目录孤儿文件 `metrics.svg`、`metrics-light.svg`、`metrics-dark.svg`、`notes.zip`（全仓无引用）。
+- 删除 `readme-stats.yml` 中 `Followup`、`WakaTime` 共 4 个 step；删除对应 `profile/followup-*`、`profile/wakatime-*` 卡片（前者数据全为 0 且条形图坐标异常，后者因缺少 API Key 恒为 0）。
+- 删除与贡献日历信息重复的第三方 `ghchart` 热力图。
+
+### Fixed
+- `.gitignore` 补充 `*.zip`，防止打包物再次误提交。
+
 ## [1.0.0] - 2025-10-20
 
 ### Added

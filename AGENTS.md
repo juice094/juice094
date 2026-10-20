@@ -5,6 +5,22 @@
 
 ---
 
+## 仓库定性（所有整理与改动的裁判依据）
+
+> **本仓库是"策展型个人技术作品集"。内容深度以 T2（可复用）为标准；分区生命周期遵循 LFX 的 Active / Stable / Archived；不追求全仓统一成熟度。任何不服务于"可理解、可复用、可追溯"之一的内容，移出公开面或显式标为 Archived。**
+
+| 区域 | 定性 | 生命周期 | 成熟标准 |
+|---|---|---|---|
+| `README.md` + 被引用的 `profile/` 图 | 策展面 | Active | 只放第一眼内容；生成物必须被引用 |
+| `projects/`、`notes/`、`research/` | 展示面 | Stable | T1 可理解，`projects/` 达 T2 |
+| `resume/` 主链 | 可复用面 | Active | T2：单一数据源、可一键重建 |
+| `archive/` | 存档面 | Archived | 只要求可追溯，不维护 |
+| `scripts/`、`.github/` | 支撑面 | Active | 服务于以上三面，不自成目的 |
+
+改动任何文件前，先确认它属于表中哪一行；不属于任何一行，就不该留在公开面。
+
+---
+
 ## 项目概述
 
 `juice094` 是周景潇的**个人技术主页 / 求职作品集仓库**，不是单一可运行程序。
@@ -75,6 +91,15 @@ juice094/
 ---
 
 ## 构建、生成与自动化命令
+
+### 简历构建现状（两条链并存，尚未收敛）
+
+| 链路 | 入口 | 数据源 | 输出 | 状态 |
+|---|---|---|---|---|
+| **A. 文档化主链** | `resume/build-resume.ps1`（本地）/ `.github/workflows/build.yml`（CI） | `zh-keda-ai-agent.md`、`zh.md`、`en.md`（手写 Markdown） | `resume/*.pdf` | Active，本文件与 CI 均依赖 |
+| **B. 实验性脚手架** | `python resume/build.py --all` | `resume/data/resume.yaml` + `configs/*.yaml` + `templates/*.j2` | `resume/output/*.{md,typ,pdf}`（已 gitignore） | 内容未追平手写版，未接入 CI |
+
+**两条链内容不等价**：B 的产出比 A 少整节（技能表格、研究经历、部分项目 bullet）。在完成回填并验证等价之前，**不要删除任一条，也不要让 B 接管 CI**。
 
 ### 本地构建简历 PDF
 
