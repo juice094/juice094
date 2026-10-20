@@ -1,0 +1,108 @@
+{
+  "generated_at": "2026-10-20T10:46:21+00:00",
+  "summary": {
+    "total_repos": 25,
+    "public_repos": 9,
+    "private_repos": 16,
+    "total_size_kb": 1226475,
+    "skipped_repos": 0
+  },
+  "languages": {
+    "Rust": {
+      "bytes": 12376209,
+      "percent": 40.07
+    },
+    "TypeScript": {
+      "bytes": 6311641,
+      "percent": 20.43
+    },
+    "Python": {
+      "bytes": 4422445,
+      "percent": 14.32
+    },
+    "HTML": {
+      "bytes": 2572516,
+      "percent": 8.33
+    },
+    "JavaScript": {
+      "bytes": 1731603,
+      "percent": 5.61
+    },
+    "Vue": {
+      "bytes": 555870,
+      "percent": 1.8
+    },
+    "TeX": {
+      "bytes": 543051,
+      "percent": 1.76
+    },
+    "SCSS": {
+      "bytes": 533340,
+      "percent": 1.73
+    },
+    "Java": {
+      "bytes": 513663,
+      "percent": 1.66
+    },
+    "PowerShell": {
+      "bytes": 337779,
+      "percent": 1.09
+    },
+    "Shell": {
+      "bytes": 292479,
+      "percent": 0.95
+    },
+    "BibTeX Style": {
+      "bytes": 244719,
+      "percent": 0.79
+    },
+    "CSS": {
+      "bytes": 205327,
+      "percent": 0.66
+    },
+    "Kotlin": {
+      "bytes": 178673,
+      "percent": 0.58
+    },
+    "Typst": {
+      "bytes": 28189,
+      "percent": 0.09
+    },
+    "Makefile": {
+      "bytes": 10092,
+      "percent": 0.03
+    },
+    "Batchfile": {
+      "bytes": 7018,
+      "percent": 0.02
+    },
+    "Jinja": {
+      "bytes": 4977,
+      "percent": 0.02
+    },
+    "Jupyter Notebook": {
+      "bytes": 4736,
+      "percent": 0.02
+    },
+    "Dockerfile": {
+      "bytes": 3791,
+      "percent": 0.01
+    },
+    "Perl": {
+      "bytes": 2904,
+      "percent": 0.01
+    },
+    "NSIS": {
+      "bytes": 2498,
+      "percent": 0.01
+    },
+    "Just": {
+      "bytes": 2015,
+      "percent": 0.01
+    },
+    "VBScript": {
+      "bytes": 1119,
+      "percent": 0.0
+    }
+  }
+}
