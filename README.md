@@ -8,54 +8,17 @@ He builds his own infrastructure. A P2P sync protocol wire-compatible with Synct
 
 He is harder on himself than on any code he reviews. Half his repositories are private; the other half are promises he intends to keep.
 
-[clarity](https://github.com/juice094/clarity) · [syncthing-rust](https://github.com/juice094/syncthing-rust) · [devbase](https://github.com/juice094/devbase) · [linus-review-skill](https://github.com/juice094/linus-review-skill)
+<a href="https://github.com/juice094/clarity">clarity</a> · <a href="https://github.com/juice094/syncthing-rust">syncthing-rust</a> · <a href="https://github.com/juice094/devbase">devbase</a> · <a href="https://github.com/juice094/linus-review-skill">linus-review-skill</a>
 
 </div>
 
 ---
 
-<!-- 第一排：核心数据 & 语言分布 -->
+<!-- 统一使用 tokyonight 主题，宽度严格 49% 对 49% -->
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=juice094&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=8957e5&text_color=c9d1d9&icon_color=8957e5&bg_color=0d1117" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=juice094&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&bg_color=0d1117" width="41%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=juice094&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&hide_title=true&hide_rank=true" width="49%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=juice094&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&hide_title=true" width="49%" />
 </div>
-
-<!-- 第二排：详细的贡献概览卡片 -->
-<div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=juice094&theme=tokyonight" width="100%" />
-</div>
-
-<!-- 第三排：活动折线图 -->
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=juice094&theme=tokyonight&bg_color=0d1117&color=8957e5&line=8957e5&point=ffffff&hide_border=true" width="100%" />
-</div>
-
----
-
-### Featured Projects
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>Clarity</h3>
-      <p>AI agent runtime. <br><em>Rust</em></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>syncthing-rust</h3>
-      <p>A P2P sync protocol wire-compatible with Syncthing. <br><em>Rust</em></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>devbase</h3>
-      <p>A developer workspace compiler. <br><em>Rust</em></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>linus-review-skill</h3>
-      <p>A code-review skill distilled from 38,293 LKML records. <br><em>Markdown / AI</em></p>
-    </td>
-  </tr>
-</table>
 
 ---
 
