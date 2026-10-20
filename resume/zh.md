@@ -2,7 +2,7 @@
 
 **数据科学与大数据技术 · 大三在读 · 本科 2027 届** · 上海 / 北京 / 深圳 / 杭州 / 成都
 
-📞 13626566112 · 📧 2241470466@qq.com · 🔗 github.com/juice094
+📞 13626566112 · 📧 humiao2007@gmail.com · 🔗 github.com/juice094
 
 **求职意向**：AI Agent 开发 / 后端系统开发 / 智能体平台研发
 
@@ -20,8 +20,8 @@
 
 | # | 技能 | 熟练度 / 项目锚点 |
 |:---|:---|:---|
-| 1 | **Rust** | 主力语言，3 年。在校独立完成三个大型 Workspace 项目，有效代码 ~6 万行，vibe coding ~27 万行。从 BEP 协议栈到 Agent 内核到编译器管线，均从零构建。 |
-| 2 | **Python** | 研究主力。数据分析、实验脚本、统计检验。有效代码 ~2 万行，vibe coding ~7 万。在耦合论文中用于 40+ 条件 × 3000+ 样本的统计分析与可视化。 |
+| 1 | **Rust** | 主力语言，3 年。在校独立完成三个大型 Workspace 项目，从 BEP 协议栈到 Agent 内核到编译器管线，均从零构建。 |
+| 2 | **Python** | 研究主力。数据分析、实验脚本、统计检验。在耦合论文中用于 40+ 条件 × 3000+ 样本的统计分析与可视化。 |
 | 3 | **SQLite** | 在 Clarity 中实现 BM25 + 向量混合检索记忆系统（SQLite BLOB + 自定义 cosine_similarity UDF）；在 devbase 中设计 SQLite Registry 统一实体-关系模型。 |
 | 4 | **tokio / 异步 Rust** | Clarity 单二进制运行时底层引擎，管理 Agent 循环、MCP 工具并发调用、SPMC 事件总线。tracing + console-subscriber 做分布式诊断。 |
 | 5 | **TLS / rustls** | 在 syncthing-rust 中实现 BEP over TLS 完整握手与消息加密，配合 prost + ed25519-dalek 还原 wire 级协议。wire_compat 集成测试验证跨语言互操作。 |
@@ -36,11 +36,11 @@
 
 ## 个人项目
 
-### Clarity — 本地优先 AI Agent 运行时
+### Clarity — 本地优先 AI Agent 运行时（已完成，仓库归档）
 
 **S**：从零构建的本地 AI 运行时，单二进制编排 LLM、MCP 工具、记忆系统与多 Agent 协作。零 Python / Node.js / Ollama 外部依赖。6 个前端入口共享同一 Agent 内核。
 
-**T**：Rust · 22 workspace crates · tokio · SQLite · Candle GGUF · protobuf · egui / ratatui / Axum · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 - 至今
+**T**：Rust · tokio · SQLite · Candle GGUF · protobuf · egui / ratatui / Axum · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 — 2026.08（1,026 commits，最终版本 v0.3.3）
 
 **A — R**：
 | 做了什么 | 量化结果 |
@@ -50,10 +50,10 @@
 | 构建混合记忆系统（SQLite + BM25 + 向量搜索 + 四级压缩归档） | 支持长期记忆持久化与上下文窗口溢出防护 |
 | 设计跨前端 SPMC 事件总线（WireMessage 统一协议） | 6 前端共享同一内核，各前端不互相 import |
 | 解决 egui Pretext 文字测量精度问题 | 1000 条消息渲染高度偏差 1.45%，estimate/render 分别 74µs / 136µs |
-| 工程基线 | 1,889 测试全通过，Clippy 零 warning，零 unwrap/expect |
+| 工程基线 | Clippy 零 warning，生产代码零 unwrap/expect，三平台 release 产物 |
 
 ### 学生项目集 — [student-era](https://github.com/juice094/student-era)
-**Vue 3 / Python / JavaScript** · 多课程归档 · 2025.09 - 至今
+**Vue 3 / Python / JavaScript** · 多课程归档 · 2025.09 — 2026.07（已归档）
 
 - **机器学习**：PyTorch + ResNet18 苹果质量检测（8 分类）、天气预测回归
 - **Web 前端**：Vue 3 课程设计（组件化、响应式）、HTML5 Canvas 游戏开发
@@ -64,9 +64,9 @@
 
 ### syncthing-rust — P2P 文件同步引擎
 
-**S**：Go Syncthing 的 Rust 重实现，BEP 协议 wire 级兼容。支持跨平台 P2P 文件同步，单二进制 ~13MB。
+**S**：Go Syncthing 的 Rust 重实现，BEP 协议 wire 级兼容。支持跨平台 P2P 文件同步，单二进制 10.5—15.3MB（按平台）。
 
-**T**：Rust · 13 workspace crates · prost + rustls + ed25519-dalek · STUN / UPnP / Relay
+**T**：Rust · prost + rustls + ed25519-dalek · STUN / UPnP / Relay · 423 commits · 最新 v3.0.5（2026-10）· 7 stars
 
 **A — R**：
 | 做了什么 | 量化结果 |
@@ -75,7 +75,7 @@
 | 构建多路径 NAT 穿透（UDP 广播 + mTLS Discovery + STUN + UPnP + Relay） | 覆盖 LAN / 公网 / 中继三种网络环境 |
 | 解决 Windows 文件共享冲突（指数退避重命名 + 三路合并 + 版本归档） | 反病毒/编辑器并发场景下零文件损坏 |
 | 实现预测性健康检查 + 自适应并发控制 | 变更检测延迟 ~1s，动态调整扫描/拉取并发 |
-| 工程基线 | 392 测试通过，零 Clippy warning，单二进制 ~13MB |
+| 工程基线 | 零 Clippy warning；三平台预编译二进制（Linux 12.3MB / macOS 10.5MB / Windows 15.3MB） |
 
 ---
 
@@ -83,7 +83,7 @@
 
 **S**：将本地 Git 仓库、PARA 笔记、Skill 脚本与 YAML 工作流编译为 AI 可推理的结构化上下文。
 
-**T**：Rust · 12 workspace crates · tree-sitter · SQLite · MCP · Candle / Ollama
+**T**：Rust · tree-sitter · SQLite · MCP · Candle / Ollama · [github.com/juice094/devbase](https://github.com/juice094/devbase) · 2026.04 — 2026.06（489 commits，最终版本 v0.20.1）
 
 **A — R**：
 | 做了什么 | 量化结果 |
@@ -99,7 +99,7 @@
 
 ### 检索增强生成中输出结构的实证研究（2026.03 — 至今）
 
-代码仓库：[acr-select](https://github.com/juice094/acr-select)
+> 代码与实验数据暂未公开，可通过邮件申请访问。
 
 | S | 围绕 RAG 系统中输出格式与内容质量的交互关系，设计并执行受控实验框架 |
 |:---|:---|
@@ -119,7 +119,7 @@
 
 ## 自我评价
 
-大三在读，2025.11-2026.06 独立设计并交付三个生产级 Rust 系统（合计 44+ workspace crate、2,500+ 测试全通过）。从 BEP 协议栈到 Agent 内核到世界模型编译器，均从零构建。具备独立闭环能力：发现问题 → 设计实验 → 实现系统 → 写论文。对 AI Agent 核心架构有从 0 到 1 的工程理解——Contract-First 分层、ReAct/Plan 双模式循环、MCP 协议四传输、混合记忆系统。Rust + AI Agent 双稀缺组合，具备将底层系统设计能力迁移到多语言业务栈的基础。
+大三在读，独立设计并交付三个 Rust 系统，累计 1,938 commits，从 BEP 协议栈到 Agent 内核到世界模型编译器，均从零构建。其中 syncthing-rust 持续维护至 v3.0.5（2026-10），Clarity 与 devbase 分别于 2026-08 / 2026-06 完成收尾并归档。具备独立闭环能力：发现问题 → 设计实验 → 实现系统 → 写论文。对 AI Agent 核心架构有从 0 到 1 的工程理解——Contract-First 分层、ReAct/Plan 双模式循环、MCP 协议四传输、混合记忆系统。
 
 ### 公网部署经验
 

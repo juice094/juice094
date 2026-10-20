@@ -1,6 +1,6 @@
 # 周景潇
 
-**13626566112** · **2241470466@qq.com** · **[github.com/juice094](https://github.com/juice094)**
+**13626566112** · **humiao2007@gmail.com** · **[github.com/juice094](https://github.com/juice094)**
 **AI 应用开发 / 后端开发 / 智能体平台研发** · 北京/上海/杭州/深圳 · 2026.07 可到岗 · 可实习 3-6 个月，每周 5 天
 
 ---
@@ -38,7 +38,7 @@
 ## 项目经历
 
 ### Clarity — AI Agent 运行时
-**Rust** · 22 活跃 workspace crates · 1,889 测试全通过 · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 - 至今
+**Rust** · 1,026 commits · v0.3.3 · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 — 2026.08（已归档）
 
 本地优先的 AI Agent 运行时，单二进制编排 LLM、MCP 工具、记忆系统。
 
@@ -48,7 +48,7 @@
 - 5 种 UI 后端（TUI/egui/Slint/Tauri/headless），移动端 FFI 绑定；单二进制零 Python/Node.js/Ollama 外部依赖
 
 ### devbase — 开发者工作空间编译器
-**Rust** · 12 crates · 71 MCP 工具 · 56K LOC · [github.com/juice094/devbase](https://github.com/juice094/devbase) · 2026.04 - 至今
+**Rust** · 489 commits · v0.20.1 · 71 MCP 工具 · [github.com/juice094/devbase](https://github.com/juice094/devbase) · 2026.04 — 2026.06（已收尾）
 
 代码上下文 + 知识记忆 + Agent 推理的统一编译器。
 
@@ -57,7 +57,7 @@
 - SQLite WAL + OpLog 审计，预编译二进制 ~8.7MB
 
 ### syncthing-rust — P2P 文件同步引擎
-**Rust** · 13 workspace crates · 58,848 行 · 392 测试通过 · [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.04 - 至今
+**Rust** · 423 commits · v3.0.5 · [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.04 — 至今
 
 Go Syncthing 的 Rust 重实现，BEP 协议 wire 级兼容。
 

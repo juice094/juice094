@@ -6,7 +6,7 @@
 
 - **姓名**：周景潇
 - **电话**：13626566112
-- **邮箱**：2241470466@qq.com
+- **邮箱**：humiao2007@gmail.com
 - **GitHub**：[github.com/juice094](https://github.com/juice094)
 - **学校**：甘肃农业大学 · 信息科学技术学院 · 数据科学与大数据技术 · 大三在读 · 预计 2027.06
 - **求职意向**：AI Agent 开发 / 后端开发 / 智能体平台研发
@@ -16,7 +16,7 @@
 
 ## 个人简介
 
-数据科学专业大三在读，**Rust 主力（3 年）**、**Python 熟练**、**Java/Go/TypeScript 熟悉**。2025.11-2026.06 独立设计并交付三个生产级 Rust 系统（合计 44+ workspace crate、2,500+ 测试全通过）。最深度的实践是**独立设计 22-crate 本地 AI Agent 运行时**——覆盖 LLM 编排、ReAct/Plan 双模式 Agent 循环、MCP 协议四传输实现、BM25+向量混合检索记忆系统、四层审批链与多前端共享内核。对 AI Agent 核心架构有从 0 到 1 的工程理解，具备将底层系统设计能力迁移到多语言业务栈的基础。
+数据科学专业大三在读，**Rust 主力（3 年）**、**Python 熟练**、**Java/Go/TypeScript 熟悉**。2026.04 起独立设计并交付三个 Rust 系统（累计 1,938 commits，其中 syncthing-rust 持续维护至今）。最深度的实践是**独立设计本地 AI Agent 运行时**——覆盖 LLM 编排、ReAct/Plan 双模式 Agent 循环、MCP 协议四传输实现、BM25+向量混合检索记忆系统、四层审批链与多前端共享内核。对 AI Agent 核心架构有从 0 到 1 的工程理解，具备将底层系统设计能力迁移到多语言业务栈的基础。
 
 ---
 
@@ -24,7 +24,7 @@
 
 | 类别 | 具体技能 |
 |------|---------|
-| **编程语言** | Rust（主力，3年，44+ workspace crate 经验）、Python（熟练，数据分析/实验脚本）、Java/Go/TypeScript/SQL（熟悉） |
+| **编程语言** | Rust（主力，3年，三个项目累计 1,938 commits）、Python（熟练，数据分析/实验脚本）、Java/Go/TypeScript/SQL（熟悉） |
 | **AI / Agent** | ReAct / Plan Agent 循环、MCP 协议（stdio/SSE/HTTP/WebSocket 四传输全实现）、RAG、BM25 + 向量混合检索、Multi-Agent 调度、LLM Provider 抽象与容灾、Candle GGUF 本地推理 |
 | **后端 / 系统** | tokio 异步运行时、Axum REST API、WebSocket、SPMC 事件总线、CI/CD（GitHub Actions）、零 unwrap 工程基线 |
 | **数据库 / 存储** | SQLite（WAL / FTS5 / 自定义 UDF）、PostgreSQL、Redis、Tantivy BM25、sled、向量相似度检索 |
@@ -38,20 +38,20 @@
 
 ### Clarity — Rust 原生本地优先 AI Agent 运行时
 
-> 独立项目 · 22 workspace crate · ~150K 行 Rust · 1,889 测试全通过 · 零 Clippy 警告
-> [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 — 至今
+> 独立项目 · 1,026 commits · v0.3.3 · 已归档
+> [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 — 2026.08（已归档）
 
-- **主导设计 22-crate Contract-First 架构**：以 `clarity-contract`（零内部依赖）为契约根节点，实现 TUI / 桌面 GUI / Web IDE / 无头 CLI / 系统托盘 / 移动端 FFI 六入口共享同一 Agent 内核。新功能平均只改 1 层，编译时零循环引用。默认零 Python/Node.js/Ollama 外部依赖，`cargo install` 即可运行。
+- **主导设计 Contract-First 架构**：以 `clarity-contract`（零内部依赖）为契约根节点，实现 TUI / 桌面 GUI / Web IDE / 无头 CLI / 系统托盘 / 移动端 FFI 六入口共享同一 Agent 内核。新功能平均只改 1 层，编译时零循环引用。默认零 Python/Node.js/Ollama 外部依赖，`cargo install` 即可运行。
 - **实现 ReAct + Plan 双模式 Agent 循环与四层审批链**：ReAct 适合探索性任务（边想边做），Plan 适合结构性任务（先规划后执行，步骤遗漏率从 ~40% 降至接近零）。审批链覆盖 Interactive/Smart/Plan/Yolo 四种信任级别，所有决策记录在 OpLog 中可审计。
 - **构建混合记忆系统**：SQLite FTS5 + BM25 + 向量搜索（cosine_similarity UDF）+ 四级压缩归档（今天/本周/长期/事实）。零外部向量数据库依赖，RRF 算法融合关键词与语义检索结果。
 - **落地跨前端 SPMC 事件总线**：设计 `WireMessage` / `ViewCommand` 统一 UI 与 Agent 核心通信，13 种 `RenderLine` 变体支持文本/代码/工具调用/Plan/流式内容等渲染。各前端不互相 import，通过 `clarity-wire` 解耦。
 - **完整实现 MCP 协议四传输**（stdio / SSE / HTTP / WebSocket），集成 6+ LLM Provider（OpenAI/Anthropic/DeepSeek/Kimi/Ollama/Candle GGUF），支持 Provider 网格负载均衡与熔断。
-- **工程基线**：1,889 测试全通过（1,554 lib + 275 bin + 34 doc + 26 集成），`cargo clippy -D warnings` 零 warning，生产代码零 unwrap/expect/panic。12-job CI 全绿（ubuntu/windows/macos）。
+- **工程基线**：1,026 commits，最终版本 v0.3.3，`cargo clippy -D warnings` 零 warning，生产代码零 unwrap/expect/panic。
 
 ### Devbase — 本地开发者工作空间世界模型编译器
 
-> 独立项目 · 12 workspace crate + 主 crate · 616+ 测试 · 零 Clippy 警告
-> [github.com/juice094/devbase](https://github.com/juice094/devbase) · 2026.05 — 至今
+> 独立项目 · 489 commits · v0.20.1 · 零 Clippy 警告
+> [github.com/juice094/devbase](https://github.com/juice094/devbase) · 2026.04 — 2026.06（已收尾）
 
 - **主导设计"世界模型编译器"三层架构**：感知层（tree-sitter + Tantivy + git2）→ 知识层（SQLite 图 + 向量 + 关系）→ 策略层（同步编排 + 工作流 DAG）。将分散的 Git 仓库、PARA 笔记、Skill 脚本编译为 AI 可推理的结构化上下文。
 - **以 MCP 协议暴露 71 个 stdio 工具**（5 stable + 58 beta + 8 experimental），实现统一 `McpTool` trait 与幂等路由，覆盖代码解析、Git 分析、语义检索、知识库查询、工作流执行。Stability 分级 + 晋升流程保证工具质量。
@@ -60,8 +60,8 @@
 
 ### Syncthing-Rust — P2P 文件同步守护进程
 
-> 独立项目 · 13 workspace crate · ~58K 行 Rust · 392 测试全通过 · 零 Clippy 警告
-> [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2025.11 — 至今
+> 独立项目 · 423 commits · v3.0.5 · 零 Clippy 警告
+> [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.04 — 至今
 
 - **独立实现完整 BEP over TLS 协议栈**：基于 prost + rustls + ed25519-dalek 实现与 Go Syncthing v2.1.0 的线路兼容，配套跨语言 `wire_compat` 集成测试验证。Protobuf 编解码、LZ4 压缩帧、TLS 1.3 双向认证。
 - **构建多路径 NAT 穿透与设备发现**：LAN UDP 广播 + Global HTTPS mTLS + STUN + UPnP + Relay v1 五种发现机制协同，ParallelDialer 并行尝试所有地址，首个成功连接获胜。覆盖 LAN/公网/中继三种网络环境。
@@ -74,7 +74,7 @@
 
 ### 检索增强生成中输出结构的实证研究（2026.03 — 至今）
 
-[github.com/juice094/acr-select](https://github.com/juice094/acr-select)
+> 代码与实验数据暂未公开，可通过邮件申请访问。
 
 - 围绕 RAG 系统中输出格式与内容质量的交互关系，设计并执行受控实验框架。
 - 设计 ~40 实验条件、3,000+ 样本的多因子受控实验；跨 7 模型 × 4 架构验证框架普适性。

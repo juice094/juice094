@@ -7,7 +7,7 @@ profile:
   title: 数据科学与大数据技术 · 大三在读 · 本科 2027 届
   locations: 上海 / 北京 / 深圳 / 杭州 / 成都
   phone: "13626566112"
-  email: "2241470466@qq.com"
+  email: "humiao2007@gmail.com"
   github: "juice094"
   github_url: "https://github.com/juice094"
   default_intent: "AI Agent 开发 / 后端系统开发 / 智能体平台研发"
@@ -48,7 +48,7 @@ projects:
   - name: Clarity
     repo: "https://github.com/juice094/clarity"
     period: 2026.04 — 至今
-    metrics: "23 workspace crate · 152K LOC · 1,243 tests · 零 panic"
+    metrics: "1,026 commits · v0.3.3 · 零 panic"
     description: 让 AI 助手跨设备保持一致人格的本地 Agent 系统
     bullets:
       - text: 本地优先的 AI Agent 运行时：ReAct + Plan 双模式执行，步骤遗漏率从约 40% 降到接近零。
@@ -62,7 +62,7 @@ projects:
 
   - name: syncthing-rust
     repo: "https://github.com/juice094/syncthing-rust"
-    period: 2025.11 — 至今
+    period: 2026.04 — 至今
     metrics: "8 library crate + 5 命令二进制 · 59K LOC · ~12 MB 单二进制"
     description: 无需云盘的 P2P 文件同步工具
     bullets:
@@ -76,7 +76,7 @@ projects:
   - name: devbase
     repo: "https://github.com/juice094/devbase"
     period: 2026.01 — 至今
-    metrics: "12 workspace crate + 主 crate · 56K LOC · 71 MCP 工具"
+    metrics: "489 commits · v0.20.1 · 71 MCP 工具"
     description: 把代码和笔记编译成 AI 能理解的上下文
     bullets:
       - text: 通过 MCP 协议暴露 71 个 stdio 工具，覆盖代码符号检索、Git 分析、笔记搜索、YAML 工作流执行。
@@ -88,7 +88,7 @@ projects:
 
 research:
   - title: 检索增强生成中输出结构的实证研究
-    repo: "https://github.com/juice094/acr-select"
+    repo: "private"
     period: 2026.03 — 至今
     description: 围绕 RAG 系统中“输出格式如何影响内容质量”设计受控实验：40 个实验条件、3000+ 样本、跨 4 种模型架构验证。论文撰写中。
 

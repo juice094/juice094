@@ -1,13 +1,13 @@
 # Zhou Jingxiao
 
-**13626566112** · **2241470466@qq.com** · **[github.com/juice094](https://github.com/juice094)**
+**13626566112** · **humiao2007@gmail.com** · **[github.com/juice094](https://github.com/juice094)**
 **AI / Backend / Systems Engineering** · Shanghai/Hangzhou/Shenzhen · Available 2026.07
 
 ---
 
 ## Summary
 
-Junior-year CS student. Independently designed and maintains three production-grade Rust systems (47 workspace crates, 270K+ lines, 2,500+ tests passing). Built from protocol stacks to agent kernels to compiler pipelines. Seeks internship in AI infrastructure / backend systems.
+Junior-year CS student. Independently designed and maintains three Rust systems (1,938 commits across all three). Built from protocol stacks to agent kernels to compiler pipelines. Seeks internship in AI infrastructure / backend systems.
 
 ---
 
@@ -34,7 +34,7 @@ GPA 83/100 · Core courses 86/100 · Top 10%
 
 ### Empirical Study of Output Structure in RAG (2026.06 — present)
 
-Independent research under faculty guidance. Built a controlled experiment framework to study format-content interaction in retrieval-augmented generation. Repo: [acr-select](https://github.com/juice094/acr-select)
+Independent research under faculty guidance. Built a controlled experiment framework to study format-content interaction in retrieval-augmented generation. 代码与实验数据暂未公开，可通过邮件申请访问。
 
 - Designed and executed multi-model × multi-domain × multi-depth controlled experiments (~40 conditions, 3,000+ samples)
 - Proposed a behavioral observation framework decomposing model output into format and content dimensions with independent scoring axes
@@ -47,7 +47,7 @@ Independent research under faculty guidance. Built a controlled experiment frame
 ## Projects
 
 ### Clarity — Local-First AI Agent Runtime
-**Rust** · 22 active workspace crates · 1,889 tests passing · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 – present
+**Rust** · 1,026 commits · v0.3.3 · [github.com/juice094/clarity](https://github.com/juice094/clarity) · 2026.04 – 2026.08（archived）
 
 Single-binary local AI runtime: LLM orchestration, MCP tools, memory systems, multi-agent collaboration. Zero Python/Node.js/Ollama dependencies.
 
@@ -59,7 +59,7 @@ Single-binary local AI runtime: LLM orchestration, MCP tools, memory systems, mu
 - **Engineering baseline**: 1,554 lib + 275 bin + 34 doc + 26 integration tests passing, Clippy zero warnings, zero production unwrap/expect
 
 ### syncthing-rust — P2P File Sync Engine
-**Rust** · 13 workspace crates · 58,848 LOC · 392 tests passing · [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.05 – present
+**Rust** · 423 commits · v3.0.5 · [github.com/juice094/syncthing-rust](https://github.com/juice094/syncthing-rust) · 2026.04 – present
 
 Wire-compatible Rust reimplementation of Go Syncthing BEP protocol. Single static binary ~13MB.
 
@@ -69,7 +69,7 @@ Wire-compatible Rust reimplementation of Go Syncthing BEP protocol. Single stati
 - **Predictive health checks**: event-driven failure rate and state flip trend analysis; FolderOrchestrator dynamically adjusts scan/pull concurrency. ~1s change detection latency
 
 ### devbase — Developer Workspace World Model Compiler
-**Rust** · 12 workspace crates · 71 MCP tools · 616+ tests · 2026.04 - present
+**Rust** · 489 commits · v0.20.1 · 71 MCP tools · 2026.04 – 2026.06
 
 Compiles local Git repos, PARA notes, Skill scripts, and YAML workflows into AI-inferrable structured context.
 
