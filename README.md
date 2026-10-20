@@ -1,7 +1,11 @@
 # juice094
 
 <p align="center">
-  <img src="./metrics.svg" alt="GitHub Metrics" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./metrics-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./metrics-light.svg">
+    <img src="./metrics-light.svg" alt="GitHub Metrics" width="100%">
+  </picture>
 </p>
 
 <p align="center">
