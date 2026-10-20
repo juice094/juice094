@@ -1,8 +1,10 @@
 # devbase — World Model Compiler
 
-> **Developer workspace compiler. 12 crates, 56K LOC, 71 MCP tools.**
+> **Developer workspace compiler. 489 commits, 71 MCP tools, v0.20.1.**
 >
 > https://github.com/juice094/devbase
+>
+> **状态**：已收尾（2026-06）· 最终版本 v0.20.1
 
 ---
 
@@ -54,8 +56,11 @@ core
 
 | Metric | Value |
 |:---|:---|
-| Crates | 12 |
+| Commits | 489 |
+| Latest release | v0.20.1（2026-05） |
+| Active period | 2026.04 — 2026.06 |
 | MCP tools | 71 |
-| Lines of Rust | 56,000 |
-| Binary size | ~8.7MB |
+| Binary size | 8.4MB（Linux tar.gz / Windows zip） |
 | Storage | SQLite WAL + OpLog audit |
+
+> crate 数与代码行数未纳入本表——需要仓库内实测，暂无可自动获取的来源。

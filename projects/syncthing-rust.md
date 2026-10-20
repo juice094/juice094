@@ -1,8 +1,10 @@
 # syncthing-rust — P2P File Sync Protocol
 
-> **Wire-compatible Rust implementation of the Syncthing BEP protocol. 8 crates, 59K LOC.**
+> **Wire-compatible Rust implementation of the Syncthing BEP protocol. 423 commits, v3.0.5, 7 stars.**
 >
 > https://github.com/juice094/syncthing-rust
+>
+> **状态**：持续维护（最近发布 2026-10）
 
 ---
 
@@ -10,7 +12,7 @@
 
 A from-scratch Rust implementation of the Block Exchange Protocol (BEP) — the protocol that powers Syncthing. Wire-compatible with the Go implementation: the two can sync with each other.
 
-Binary size: ~12MB static. Memory: 170MB stable under load.
+Binary size: 10.5—15.3MB by platform（macOS 10.5MB / Linux 12.3MB / Windows 15.3MB）.
 
 ---
 
@@ -58,9 +60,10 @@ api
 
 | Metric | Value |
 |:---|:---|
-| Crates | 8 |
-| Binaries | 5 |
-| Lines of Rust | 59,000 |
-| Binary size | ~12MB static |
-| Memory | 170MB stable |
+| Commits | 423 |
+| Latest release | v3.0.5（2026-10） |
+| Stars | 7 |
+| Release assets | 3 平台预编译（macOS 10.5MB / Linux 12.3MB / Windows 15.3MB） |
 | Discovery | LAN + Global (UDP, HTTPS, STUN, UPnP, Relay) |
+
+> crate 数与代码行数未纳入本表——需要仓库内实测，暂无可自动获取的来源。

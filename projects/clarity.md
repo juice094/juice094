@@ -3,6 +3,8 @@
 > **面向具身智能的本地优先分布式人格连续运行时**
 >
 > https://github.com/juice094/clarity
+>
+> **状态**：已归档（2026-08）· 最终版本 v0.3.3 · 1,026 commits
 
 ---
 
@@ -95,9 +97,12 @@ infra
 
 | Metric | Value |
 |:---|:---|
-| Crates | 23 |
-| Lines of Rust | 152,000 |
-| Tests | 1,243 |
+| Commits | 1,026 |
+| Latest release | v0.3.3（2026-05） |
+| Active period | 2026.04 — 2026.08 |
+| Release assets | egui 34.1MB / headless 12MB（Linux） |
 | Production code | Zero `unwrap`/`expect` |
 | Lint | Clippy zero-warning |
 | License | AGPL-3.0 |
+
+> 仓库已归档，以上为最终状态。crate 数与测试数未纳入本表——它们需要仓库内实测，暂无可自动获取的来源。

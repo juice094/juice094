@@ -3,7 +3,7 @@
 # Hi, I'm juice094 👋
 
 **Local-first systems, built from scratch.**
-**20 crates · 115K+ LOC · 3 projects — shipped, measured, documented.**
+**3 projects · 1,938 commits · 2 archived as complete, 1 actively maintained.**
 
 [![GitHub](https://img.shields.io/badge/GitHub-juice094-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/juice094)
 [![Email](https://img.shields.io/badge/Email-humiao2007%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:humiao2007@gmail.com)
@@ -13,9 +13,9 @@
 
 ## 精选项目
 
-- **[devbase](https://github.com/juice094/devbase)** — Developer workspace compiler. **12 crates, 56K LOC, 71 MCP tools**: code context, knowledge memories and agent reasoning paths in a single Rust engine.
-- **[syncthing-rust](https://github.com/juice094/syncthing-rust)** — Wire-compatible reimplementation of the Syncthing BEP protocol. **8 crates, 59K LOC, ~12MB static binary**, 170MB steady under load — syncs with the Go implementation.
-- **[Clarity](https://github.com/juice094/clarity)** — Local-first distributed personality runtime: one identity across models, devices and network boundaries.
+- **[syncthing-rust](https://github.com/juice094/syncthing-rust)** — Wire-compatible reimplementation of the Syncthing BEP protocol. **423 commits, v3.0.5 (2026-10), 7 stars**; three-platform prebuilt binaries, 10.5–15.3MB each — syncs with the Go implementation.
+- **[Clarity](https://github.com/juice094/clarity)** — Local-first distributed personality runtime: one identity across models, devices and network boundaries. **1,026 commits, v0.3.3**; archived 2026-08 as complete.
+- **[devbase](https://github.com/juice094/devbase)** — Developer workspace compiler: code context, knowledge memories and agent reasoning paths in a single Rust engine. **489 commits, v0.20.1, 71 MCP tools**; wrapped up 2026-06.
 
 <details open>
 <summary><b>贡献日历</b></summary>
