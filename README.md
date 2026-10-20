@@ -1,4 +1,3 @@
-# juice094
 
 <p align="center">
   <picture>
