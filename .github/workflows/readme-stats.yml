@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1. 左上：3D 贡献日历 (配合 habits 显示连击天数)
+      # 1. 左上：3D 贡献日历
       - name: 3D Calendar (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -48,7 +48,7 @@ jobs:
           plugin_habits_facts: yes
           plugin_habits_charts: no
 
-      # 2. 右上：2D 贡献热力图 (支持年份分段)
+      # 2. 右上：2D 贡献热力图
       - name: 2D Calendar (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -72,7 +72,7 @@ jobs:
           plugin_habits: yes
           plugin_habits_charts: no
 
-      # 3. 中上（全宽）：语言统计 (深度字段：行数估算 + 字节大小 + 百分比)
+      # 3. 中上左（50%）：语言统计 (全量代码统计)
       - name: Languages (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -84,7 +84,6 @@ jobs:
           plugin_languages: yes
           plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
           plugin_languages_details: percentage, lines, bytes-size
-          plugin_languages_sections: most-used
       - name: Languages (Dark)
         uses: lowlighter/metrics@latest
         with:
@@ -96,9 +95,8 @@ jobs:
           plugin_languages: yes
           plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
           plugin_languages_details: percentage, lines, bytes-size
-          plugin_languages_sections: most-used
 
-      # 4. 中中（全宽）：整体议题和拉取请求状态 (区分 open/closed/drafts/merged)
+      # 4. 中上右（50%）：整体议题和拉取请求状态
       - name: Followup (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -122,7 +120,7 @@ jobs:
           plugin_followup_sections: repositories, user
           plugin_followup_indepth: yes
 
-      # 5. 中下左：精选仓库 (显示详细 star/fork 数据)
+      # 5. 中下左：精选仓库 (按 star 降序，取前 3)
       - name: Repositories (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -132,7 +130,7 @@ jobs:
           base: ""
           config_theme: default
           plugin_repositories: yes
-          plugin_repositories_featured: juice094/clarity, juice094/syncthing-rust, juice094/devbase
+          plugin_repositories_limit: 3
           plugin_repositories_stars: yes
       - name: Repositories (Dark)
         uses: lowlighter/metrics@latest
@@ -143,10 +141,10 @@ jobs:
           base: ""
           config_theme: github_dark
           plugin_repositories: yes
-          plugin_repositories_featured: juice094/clarity, juice094/syncthing-rust, juice094/devbase
+          plugin_repositories_limit: 3
           plugin_repositories_stars: yes
 
-      # 6. 中下右：最近标星的仓库
+      # 6. 中下右：最近标星的仓库 (限制 3 个)
       - name: Stars (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -156,7 +154,7 @@ jobs:
           base: ""
           config_theme: default
           plugin_stars: yes
-          plugin_stars_limit: 4
+          plugin_stars_limit: 3
       - name: Stars (Dark)
         uses: lowlighter/metrics@latest
         with:
@@ -166,9 +164,9 @@ jobs:
           base: ""
           config_theme: github_dark
           plugin_stars: yes
-          plugin_stars_limit: 4
+          plugin_stars_limit: 3
 
-      # 7. 左下：WakaTime 编码时间 (深度字段：时长 + 项目活跃度 + 语言活跃度 + 操作系统)
+      # 7. 左下：WakaTime
       - name: WakaTime (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -192,7 +190,7 @@ jobs:
           plugin_wakatime_token: ${{ secrets.WAKATIME_API_KEY }}
           plugin_wakatime_sections: time, projects, languages, editors, os
 
-      # 8. 右下：用户反应 (reactions) / 24 小时提交分布
+      # 8. 右下：用户反应 / 24 小时提交分布
       - name: Reactions & Habits (Light)
         uses: lowlighter/metrics@latest
         with:

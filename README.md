@@ -23,12 +23,10 @@
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center">
+<td width="50%" align="center">
 <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/top-langs-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./profile/top-langs-light.svg"><img src="./profile/top-langs-light.svg" alt="编程语言统计" width="100%"></picture>
 </td>
-</tr>
-<tr>
-<td colspan="2" align="center">
+<td width="50%" align="center">
 <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/followup-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./profile/followup-light.svg"><img src="./profile/followup-light.svg" alt="Issues 和 PR 统计" width="100%"></picture>
 </td>
 </tr>
