@@ -1,0 +1,26 @@
+name: 功能或内容建议
+ description: 对仓库文档结构、学习笔记或自动化脚本提出改进建议
+ title: "[Feature] "
+ labels: ["enhancement"]
+ body:
+   - type: textarea
+     id: problem
+     attributes:
+       label: 你的建议与现有情况的关联
+       description: 你的建议是否与某个具体问题相关？例如：某方面的笔记不够深入、缺少某类脚本等。
+     validations:
+       required: true
+   - type: textarea
+     id: solution
+     attributes:
+       label: 期望的解决方案
+       description: 请清晰描述你希望增加或修改什么内容。
+     validations:
+       required: true
+   - type: textarea
+     id: alternatives
+     attributes:
+       label: 其他替代方案
+       description: 你是否考虑过其他可行的方案？
+     validations:
+       required: false

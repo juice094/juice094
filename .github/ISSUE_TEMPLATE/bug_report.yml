@@ -1,0 +1,35 @@
+name: Bug 报告
+ description: 反馈文档、链接、代码示例或脚本问题
+ title: "[Bug] "
+ labels: ["bug"]
+ body:
+   - type: markdown
+     attributes:
+       value: "感谢您反馈问题。请尽量提供详细的上下文信息。"
+   - type: input
+     id: location
+     attributes:
+       label: 问题出现的位置
+       description: 请提供具体的文件路径或 URL 链接
+       placeholder: 例如：`README.md` 第 10 行，或某处的 URL 链接
+     validations:
+       required: true
+   - type: textarea
+     id: description
+     attributes:
+       label: 问题描述
+       description: 请详细描述该问题是什么，以及如何重现。
+     validations:
+       required: true
+   - type: textarea
+     id: expected
+     attributes:
+       label: 期望表现
+       description: 你期望看到的内容或结果是什么？
+     validations:
+       required: false
+   - type: input
+     id: environment
+     attributes:
+       label: 运行环境（可选）
+       description: 如果问题涉及脚本运行或 PDF 构建，请提供你的操作系统及工具版本（如 Pandoc 版本）。
