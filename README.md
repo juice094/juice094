@@ -14,9 +14,20 @@ He is harder on himself than on any code he reviews. Half his repositories are p
 
 ---
 
+<!-- 第一排：核心数据 & 语言分布 -->
 <div align="center">
-  <!-- 首次 push 后，GitHub Action 会自动生成这张图片并显示在这里 -->
-  <img src="./github-metrics.svg" alt="GitHub Metrics" />
+  <img src="https://github-readme-stats.vercel.app/api?username=juice094&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=8957e5&text_color=c9d1d9&icon_color=8957e5&bg_color=0d1117" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=juice094&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&bg_color=0d1117" width="41%" />
+</div>
+
+<!-- 第二排：详细的贡献概览卡片 -->
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=juice094&theme=tokyonight" width="100%" />
+</div>
+
+<!-- 第三排：活动折线图 -->
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=juice094&theme=tokyonight&bg_color=0d1117&color=8957e5&line=8957e5&point=ffffff&hide_border=true" width="100%" />
 </div>
 
 ---
