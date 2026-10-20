@@ -19,6 +19,20 @@
 
 改动任何文件前，先确认它属于表中哪一行；不属于任何一行，就不该留在公开面。
 
+### 数据可信性规则
+
+公开面（README、`projects/`、`resume/`）出现的项目指标，只允许三类来源：
+
+1. **commit 数** — GitHub commits API
+2. **release 版本与资产大小** — GitHub releases API
+3. **star 数** — 仓库元数据
+
+无法从 API 获取的数字（crate 数、LOC、测试数）**不写手写值**；要么删除，要么标注「需仓库内实测」。
+
+账户级聚合数据由 `scripts/aggregate_stats.py` 每日生成到 `profile/stats.json`，只读元数据与语言字节，不下载任何代码内容。
+
+历史审计记录见 `resume/METRICS-AUDIT.md`，会话报告见 `docs/SESSION-REPORT-2026-10-20.md`。
+
 ---
 
 ## 项目概述

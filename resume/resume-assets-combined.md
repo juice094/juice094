@@ -474,7 +474,7 @@ devbase 是一个本地优先的开发者工作空间世界模型编译器：用
 | Workspace Crates | 12 | `crates/` 目录 |
 | MCP Tools | 71 | `src/mcp/mod.rs` `McpToolEnum` |
 | Registry Schema 版本 | v36 | `src/registry/migrate.rs` |
-| 测试函数 | 616+ | `cargo test --workspace -- --list` |
+| 测试函数 | 需仓库内实测 | `cargo test --workspace -- --list` |
 | `src/main.rs` 行数 | 836 行 | `wc -l src/main.rs` |
 | 生产代码 unwrap/expect/panic | 0 | 架构不变量 G5/RF-6 |
 | CI 架构不变量检查 | 通过 | `scripts/invariant-checks/run-checks.ps1` |

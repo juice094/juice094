@@ -13,7 +13,7 @@
 |---|---|---|---|---|
 | **clarity** | Rust 原生本地优先个人 AI 运行时 | 22 crates, ~150K 行 | Contract-First 分层 + SPMC 事件总线 + 多前端共享内核 | Candle GGUF 本地推理、BM25+向量混合记忆、UniFFI 移动端 FFI |
 | **syncthing-rust** | Syncthing BEP 协议 Rust 重写，P2P 文件同步守护进程 | 9 lib + 5 binary crate，约 5.3 万行 | Workspace 分层 + Trait-Based 抽象 + 事件驱动 | BEP 协议互操作、rustls + 自签名设备证书、预测性健康检查 |
-| **devbase** | 本地优先开发者工作空间"世界模型编译器" | 12 workspace crates + 主 crate | 三层架构 + 依赖注入 + MCP Contract-First | tree-sitter 多语言解析、SQLite + Tantivy 混合检索、81 个 MCP 工具 |
+| **devbase** | 本地优先开发者工作空间"世界模型编译器" | 489 commits · v0.20.1 | 三层架构 + 依赖注入 + MCP Contract-First | tree-sitter 多语言解析、SQLite + Tantivy 混合检索、71 个 MCP 工具 |
 
 ---
 
@@ -78,7 +78,7 @@ GitHub Actions · CI/CD 矩阵 · cargo-deny · cargo-audit · Clippy 零 warnin
 5. **主导生产级工程实践**：`cargo test --workspace` 基线 413 passed / 6 ignored / 0 failed，Clippy 0 warnings，release 单二进制约 16 MB，并设计 72h 耐久压测脚本与多云 CI/CD 矩阵。
 
 ### devbase（DevTools / AI 上下文工程 / 知识管理）
-1. **主导设计并实现本地优先的开发者工作空间"世界模型编译器"**，通过 tree-sitter + SQLite + Tantivy 将代码库、PARA 笔记、Skill 与工作流编译为 AI 可推理的结构化上下文，并以 MCP 协议暴露 81 个 stdio 工具。
+1. **主导设计并实现本地优先的开发者工作空间"世界模型编译器"**，通过 tree-sitter + SQLite + Tantivy 将代码库、PARA 笔记、Skill 与工作流编译为 AI 可推理的结构化上下文，并以 MCP 协议暴露 71 个 stdio 工具。
 2. **在零云端依赖约束下实现语义检索能力**：设计 SQLite BLOB + 自定义 `cosine_similarity` UDF 的向量搜索方案，配合 Candle/Ollama 本地 embedding 后端，使默认构建保持零 ML 运行时依赖。
 3. **建立项目级架构治理体系**：定义并落地 G1–G7/RF-1–RF-7 架构红线，通过 `scripts/invariant-checks/run-checks.ps1` 在 CI 强制依赖注入、测试密封性、零生产 panic 等规则，实现生产代码 `unwrap/expect/panic` 数量为 0。
 4. **设计并实现 12 crate 的 Cargo Workspace 拆分策略**，以 `devbase-core-types` 为无耦合根节点，严格控制 crate 间依赖方向，避免子 crate 反向耦合主库。
@@ -92,7 +92,7 @@ GitHub Actions · CI/CD 矩阵 · cargo-deny · cargo-audit · Clippy 零 warnin
 |---|---|---|
 | Rust 后端 / 系统开发 | tokio · async/await · Axum · REST API · SQLite · CI/CD · 零 warning 基线 | syncthing-rust / devbase |
 | AI Infra / LLM 平台 | Candle · GGUF · MCP · ReAct/Plan · RAG · BM25+向量 · Multi-Agent · Provider Failover | clarity |
-| DevTools / 开发者体验 | MCP · tree-sitter · Tantivy · YAML DAG · 世界模型编译器 · 81 个 MCP 工具 | devbase |
+| DevTools / 开发者体验 | MCP · tree-sitter · Tantivy · YAML DAG · 世界模型编译器 · 71 个 MCP 工具 | devbase |
 | 分布式 / P2P / 网络协议 | BEP · rustls · ed25519 · NAT 穿透 · 预测性健康检查 · 自适应并发 | syncthing-rust |
 | 全栈 / 多前端 | egui · ratatui · Axum · WebSocket · SPMC · 多前端共享内核 | clarity |
 

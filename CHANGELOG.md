@@ -6,6 +6,27 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-10-20
+
+### Changed
+- 简历与项目文档的全部项目指标改用 GitHub API 可验证来源（commit 数、release 版本、star），删除 crate 数、LOC、测试数等手写值。
+- Clarity 标注为已归档（2026-08），devbase 标注为已收尾（2026-06），syncthing-rust 标注为持续维护。
+- README 精选项目按活跃度重排，syncthing-rust 升至首位。
+- `archive/resumes` 合并进 `archive/resume`。
+
+### Added
+- `docs/SESSION-REPORT-2026-10-20.md`：本轮整理的完整记录。
+- `AGENTS.md` 新增「数据可信性规则」小节。
+
+### Removed
+- 简历中所有 `acr-select` 死链（仓库 404）。
+- 「vibe coding ~27 万行」「双稀缺组合」「双闭环能力」等不可验证表述。
+- 简历中的 QQ 邮箱，统一为 Gmail。
+
+### Fixed
+- syncthing-rust 时间线：2025.11 → 2026.04（仓库实际创建时间）。
+- `keyword-arsenal.md` 中 devbase 工具数：81 → 71。
+
 ## [1.1.0] - 2026-10-20
 
 ### Added
