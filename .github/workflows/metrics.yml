@@ -29,3 +29,11 @@ jobs:
           plugin_languages_limit: 6
           plugin_stars: yes
           config_order: base.header, isocalendar, languages, stars
+          extras_css: |
+            @media (prefers-color-scheme: dark) {
+              svg { background-color: #0d1117; color: #c9d1d9; }
+              text, tspan { fill: #c9d1d9 !important; }
+              .field { color: #c9d1d9 !important; }
+              h2, h2.field { color: #58a6ff !important; }
+              rect, path, line, circle, ellipse, polygon, polyline { stroke: #30363d !important; }
+            }
