@@ -19,9 +19,9 @@
 
 ## 📖 关于本仓库
 
-本仓库是 juice094 的个人技术资产库，维护**核心项目架构文档、各方向求职简历、通用技术笔记与研究草稿**。
+这里用于沉淀日常开发与学习过程中的**系统架构文档、技术笔记与研究草稿**。
 
-> 核心业务代码托管在独立的 GitHub 仓库中，本仓库仅保留面向招聘方、面试官和合作者的文档资产。详细身份信息与求职方向见 [resume/](./resume/)。
+具体业务代码均在独立仓库中维护；详细的个人履历与求职方向请参阅 [resume/](./resume/)。
 
 ## 📂 核心内容导航
 
@@ -69,7 +69,7 @@ juice094/
 ├── research/             # 学术论文草稿
 ├── scripts/              # Windows 自动化脚本
 ├── .agents/              # AI Agent 技能定义
-├── .github/workflows/    # GitHub Actions（简历 PDF 自动构建）
+├── .github/workflows/    # GitHub Actions（简历 PDF 构建、主页 Metrics 更新）
 └── AGENTS.md             # AI Agent 工作区指南
 ```
 
