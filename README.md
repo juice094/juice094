@@ -10,5 +10,3 @@
   <a href="./research/">研究草稿</a> ·
   <a href="./resume/">个人履历</a>
 </p>
-
----
