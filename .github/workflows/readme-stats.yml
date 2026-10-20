@@ -48,31 +48,7 @@ jobs:
           plugin_habits_facts: yes
           plugin_habits_charts: no
 
-      # 2. 右上：2D 贡献热力图
-      - name: 2D Calendar (Light)
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          user: ${{ github.repository_owner }}
-          filename: profile/calendar-light.svg
-          base: activity
-          config_theme: default
-          config_timezone: Asia/Shanghai
-          plugin_habits: yes
-          plugin_habits_charts: no
-      - name: 2D Calendar (Dark)
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          user: ${{ github.repository_owner }}
-          filename: profile/calendar-dark.svg
-          base: activity
-          config_theme: github_dark
-          config_timezone: Asia/Shanghai
-          plugin_habits: yes
-          plugin_habits_charts: no
-
-      # 3. 中上左（50%）：语言统计 (全量代码统计)
+      # 2. 中上左（50%）：语言统计
       - name: Languages (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -96,7 +72,7 @@ jobs:
           plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
           plugin_languages_details: percentage, lines, bytes-size
 
-      # 4. 中上右（50%）：整体议题和拉取请求状态
+      # 3. 中上右（50%）：整体议题和拉取请求状态
       - name: Followup (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -120,7 +96,7 @@ jobs:
           plugin_followup_sections: repositories, user
           plugin_followup_indepth: yes
 
-      # 5. 中下左：精选仓库 (按 star 降序，取前 3)
+      # 4. 中下左：精选仓库 (按 star 降序，取前 3)
       - name: Repositories (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -130,6 +106,7 @@ jobs:
           base: ""
           config_theme: default
           plugin_repositories: yes
+          plugin_repositories_order: starred
           plugin_repositories_limit: 3
           plugin_repositories_stars: yes
       - name: Repositories (Dark)
@@ -141,10 +118,11 @@ jobs:
           base: ""
           config_theme: github_dark
           plugin_repositories: yes
+          plugin_repositories_order: starred
           plugin_repositories_limit: 3
           plugin_repositories_stars: yes
 
-      # 6. 中下右：最近标星的仓库 (限制 3 个)
+      # 5. 中下右：最近标星的仓库 (限制 3 个)
       - name: Stars (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -166,7 +144,7 @@ jobs:
           plugin_stars: yes
           plugin_stars_limit: 3
 
-      # 7. 左下：WakaTime
+      # 6. 左下：WakaTime
       - name: WakaTime (Light)
         uses: lowlighter/metrics@latest
         with:
@@ -190,7 +168,7 @@ jobs:
           plugin_wakatime_token: ${{ secrets.WAKATIME_API_KEY }}
           plugin_wakatime_sections: time, projects, languages, editors, os
 
-      # 8. 右下：用户反应 / 24 小时提交分布
+      # 7. 右下：用户反应 / 24 小时提交分布
       - name: Reactions & Habits (Light)
         uses: lowlighter/metrics@latest
         with:

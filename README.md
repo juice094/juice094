@@ -19,7 +19,7 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/iso-calendar-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./profile/iso-calendar-light.svg"><img src="./profile/iso-calendar-light.svg" alt="3D 贡献日历" width="100%"></picture>
 </td>
 <td width="50%" align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="./profile/calendar-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./profile/calendar-light.svg"><img src="./profile/calendar-light.svg" alt="2D 贡献热力图" width="100%"></picture>
+<img src="https://ghchart.rshah.org/409ba5/juice094" alt="2D 贡献热力图" width="100%">
 </td>
 </tr>
 <tr>
