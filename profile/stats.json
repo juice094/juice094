@@ -1,68 +1,68 @@
 {
-  "generated_at": "2026-10-20T10:46:21+00:00",
+  "generated_at": "2026-10-21T09:15:09+00:00",
   "summary": {
     "total_repos": 25,
     "public_repos": 9,
     "private_repos": 16,
-    "total_size_kb": 1226475,
+    "total_size_kb": 1228218,
     "skipped_repos": 0
   },
   "languages": {
     "Rust": {
       "bytes": 12376209,
-      "percent": 40.07
+      "percent": 39.66
     },
     "TypeScript": {
-      "bytes": 6311641,
-      "percent": 20.43
+      "bytes": 6530120,
+      "percent": 20.92
     },
     "Python": {
-      "bytes": 4422445,
-      "percent": 14.32
+      "bytes": 4482091,
+      "percent": 14.36
     },
     "HTML": {
-      "bytes": 2572516,
-      "percent": 8.33
+      "bytes": 2573993,
+      "percent": 8.25
     },
     "JavaScript": {
-      "bytes": 1731603,
-      "percent": 5.61
+      "bytes": 1731997,
+      "percent": 5.55
     },
     "Vue": {
-      "bytes": 555870,
+      "bytes": 588949,
+      "percent": 1.89
+    },
+    "SCSS": {
+      "bytes": 560260,
       "percent": 1.8
     },
     "TeX": {
       "bytes": 543051,
-      "percent": 1.76
-    },
-    "SCSS": {
-      "bytes": 533340,
-      "percent": 1.73
+      "percent": 1.74
     },
     "Java": {
-      "bytes": 513663,
-      "percent": 1.66
+      "bytes": 514063,
+      "percent": 1.65
     },
     "PowerShell": {
       "bytes": 337779,
-      "percent": 1.09
+      "percent": 1.08
     },
     "Shell": {
-      "bytes": 292479,
-      "percent": 0.95
+      "bytes": 294361,
+      "percent": 0.94
     },
     "BibTeX Style": {
       "bytes": 244719,
-      "percent": 0.79
+      "percent": 0.78
     },
     "CSS": {
-      "bytes": 205327,
-      "percent": 0.66
+      "bytes": 185980,
+      "percent": 0.6
     },
     "Kotlin": {
       "bytes": 178673,
-      "percent": 0.58
+      "percent": 0.57
     },
     "Typst": {
       "bytes": 28189,
