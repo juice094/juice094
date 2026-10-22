@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-21T09:15:09+00:00",
+  "generated_at": "2026-10-22T09:17:55+00:00",
   "summary": {
     "total_repos": 25,
     "public_repos": 9,
     "private_repos": 16,
-    "total_size_kb": 1228218,
+    "total_size_kb": 1228803,
     "skipped_repos": 0
   },
   "languages": {
     "Rust": {
       "bytes": 12376209,
-      "percent": 39.66
+      "percent": 39.39
     },
     "TypeScript": {
-      "bytes": 6530120,
-      "percent": 20.92
+      "bytes": 6717302,
+      "percent": 21.38
     },
     "Python": {
-      "bytes": 4482091,
-      "percent": 14.36
+      "bytes": 4489219,
+      "percent": 14.29
     },
     "HTML": {
-      "bytes": 2573993,
-      "percent": 8.25
+      "bytes": 2574095,
+      "percent": 8.19
     },
     "JavaScript": {
-      "bytes": 1731997,
+      "bytes": 1744302,
       "percent": 5.55
     },
     "Vue": {
       "bytes": 588949,
-      "percent": 1.89
+      "percent": 1.87
     },
     "SCSS": {
       "bytes": 560260,
-      "percent": 1.8
+      "percent": 1.78
     },
     "TeX": {
       "bytes": 543051,
-      "percent": 1.74
+      "percent": 1.73
     },
     "Java": {
       "bytes": 514063,
-      "percent": 1.65
+      "percent": 1.64
     },
     "PowerShell": {
       "bytes": 337779,
@@ -58,7 +58,7 @@
     },
     "CSS": {
       "bytes": 185980,
-      "percent": 0.6
+      "percent": 0.59
     },
     "Kotlin": {
       "bytes": 178673,
