@@ -11,7 +11,7 @@
 
 | 区域 | 定性 | 生命周期 | 成熟标准 |
 |---|---|---|---|
-| `README.md` + 被引用的 `profile/` 图 | 策展面 | Active | 只放第一眼内容；生成物必须被引用 |
+| `README.md` | 策展面 | Active | 只放第一眼内容；不放大图或自动生成的统计卡片 |
 | `projects/`、`notes/`、`research/` | 展示面 | Stable | T1 可理解，`projects/` 达 T2 |
 | `resume/` 主链 | 可复用面 | Active | T2：单一数据源、可一键重建 |
 | `archive/` | 存档面 | Archived | 只要求可追溯，不维护 |
@@ -29,7 +29,7 @@
 
 无法从 API 获取的数字（crate 数、LOC、测试数）**不写手写值**；要么删除，要么标注「需仓库内实测」。
 
-账户级聚合数据由 `scripts/aggregate_stats.py` 每日生成到 `profile/stats.json`，只读元数据与语言字节，不下载任何代码内容。
+账户级聚合数据由 `scripts/aggregate_stats.py` 手动生成到 `profile/stats.json`，只读元数据与语言字节，不下载任何代码内容。该文件当前仅作为 `resume/METRICS-AUDIT.md` 的数据基准，README 不引用。
 
 历史审计记录见 `resume/METRICS-AUDIT.md`，会话报告见 `docs/SESSION-REPORT-2026-10-20.md`。
 
@@ -41,7 +41,7 @@
 
 仓库核心内容：
 
-- `README.md`：GitHub 主页入口，介绍三个主力 Rust 项目及求职意向。
+- `README.md`：GitHub 主页入口，按维护状态列出项目并提供可运行产物的下载入口。
 - `projects/`：三个主力项目（Clarity、devbase、syncthing-rust）的架构说明文档。
 - `resume/`：多版本 Markdown 简历、LaTeX / Typst 模板、生成脚本与 PDF 输出。
 - `notes/`：学习笔记库，包括项目学习路线、项目面试攻略、通用技术笔记、面经分享。
